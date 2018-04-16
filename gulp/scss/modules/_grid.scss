@@ -1,10 +1,197 @@
 ﻿@import "../config";
 
+$col: 100/12; // 12 cols
+$gutter: 15px;
+$gutterWide: 20px;
+
+@mixin getWidth($cols)
+{
+	width: (($col * $cols) * 1%);
+}
+
+@mixin getOffset($cols)
+{
+	margin-left: (($col * $cols) * 1%);
+}
+
 .m-grid
 {
 	@include critical
 	{
-		margin: 0;
+		clear: both;
+		display: block;
+		margin: 0 auto;
 		padding: 0;
-	}		
+		position: relative;
+		width: 100%;
+		z-index: 0;
+	}
+	&__inner
+	{
+		@include critical
+		{
+			@include box-sizing();
+			display: block;
+			margin: 0;
+			margin-left: -$gutter;
+			padding: 0;
+		}
+	}
+	&__row
+	{
+		@include critical
+		{
+			@include box-sizing();
+			font-size: 0;
+			line-height: 0;
+			margin: 0;
+			padding: 0;
+			position: relative;
+			text-align: center;
+			z-index: 1;
+		}
+		&--reverse
+		{
+			@include critical
+			{
+				direction: rtl;
+			}
+		}
+		&--align-left
+		{
+			@include critical
+			{
+				text-align: left;
+			}
+		}
+	}
+	&__col
+	{
+		@include critical
+		{
+			@include box-sizing();
+			direction: ltr;
+			display: inline-block;
+			@include font-size($fontSize);
+			@include line-height($fontHeight);
+			margin: 0 0 $gutter 0;
+			padding: 0 0 0 $gutter;
+			text-align: left;
+			vertical-align: top;
+			width: 100%;
+			@for $i from 1 through 11
+			{
+				&--#{$i}
+				{
+					@include getWidth($i);
+				}
+			}
+			@include mq-min($bpMobileLarge)
+			{
+				@for $i from 1 through 11
+				{
+					&--#{$i}--mobile-large
+					{
+						@include getWidth($i);
+					}
+				}
+			}
+			@include mq-min($bpTablet)
+			{
+				@for $i from 1 through 11
+				{
+					&--#{$i}--tablet
+					{
+						@include getWidth($i);
+					}
+				}
+			}
+			@include mq-min($bpTabletLarge)
+			{
+				@for $i from 1 through 11
+				{
+					&--#{$i}--tablet-large
+					{
+						@include getWidth($i);
+					}
+				}
+			}@include mq-min($bpDesktop)
+			{
+				@for $i from 1 through 11
+				{
+					&--#{$i}--desktop
+					{
+						@include getWidth($i);
+					}
+				}
+			}
+			@include mq-min($bpDesktopLarge)
+			{
+				@for $i from 1 through 11
+				{
+					&--#{$i}--desktop-large
+					{
+						@include getWidth($i);
+					}
+				}
+			}
+			@include mq-min($bpLarge)
+			{
+				@for $i from 1 through 11
+				{
+					&--#{$i}--large
+					{
+						@include getWidth($i);
+					}
+				}
+			}
+		}
+		&--tight
+		{
+			@include critical
+			{
+				margin-bottom: 0;
+				padding-left: 0;
+			}			
+		}
+	}
+	&--wider
+	{
+		> .m-grid__inner
+		{
+			@include critical
+			{
+				margin-left: -$gutterWide;
+			}
+			> .m-grid__row
+			{
+				> .m-grid__col
+				{
+					@include critical
+					{
+						padding-left: -$gutterWide;
+						@include mq-min($bpDesktop)
+						{
+							padding-left: $gutterWide + 10;
+						}
+						@include mq-min($bpLarge)
+						{
+							padding-left: $gutterWide + 20;
+						}
+					}
+				}
+				@include critical
+				{
+					@include mq-min($bpDesktop)
+					{
+						margin-left: -($gutterWide + 10);
+					}
+					@include mq-min($bpLarge)
+					{
+						margin-left: -($gutterWide + 20);
+					}
+				}
+			}
+		}
+	}
 }
