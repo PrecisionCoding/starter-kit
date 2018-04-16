@@ -3,15 +3,21 @@
 // clearfix
 .clearfix:after
 {
-  clear: both;
-  content: "";
-  display: block;
-  font-size: 0;
-  height: 0;
-  visibility: hidden;
+	@include critical
+	{
+		clear: both;
+		content: "";
+		display: block;
+		font-size: 0;
+		height: 0;
+		visibility: hidden;
+	}
 }
 
 * html .clearfix
 {
-  height: 1%;
+	@include critical
+	{
+		height: 1%;
+	}
 }

@@ -17,7 +17,10 @@
 		site.win = $(window);
 		site.doc = $(document);
 		site.body = $('body');
-		alert('critical');
 	}
 
 };
+
+$(function () {
+	site.preInit();
+});

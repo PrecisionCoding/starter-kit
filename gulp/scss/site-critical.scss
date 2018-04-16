@@ -1,0 +1,67 @@
+﻿$critical: true;
+$deffered: false;
+
+@import "config";
+@import "reset";
+@import "cms";
+@import "forms";
+
+// base
+html
+{
+	@include critical
+	{
+		background: $colorBackground;
+		@include box-sizing();
+		@include min-height(100%);
+		margin: 0;
+		padding: 0;
+		-webkit-tap-highlight-color: rgba($colorBlack, 0);
+		@include text-size-adjust();
+		min-width: 320px;
+		@include mq-min($bpDesktop)
+		{
+			min-width: 960px;
+		}
+	}	
+}
+
+body
+{
+	@include critical
+	{
+		background: $colorBackground;
+		@include box-sizing();
+		color: $colorBase;
+		font-family: $fontBase;
+		@include font-size($fontSize);
+		height: 100%;
+		@include line-height($fontHeight);
+		margin: 0;
+		padding: 15px;
+		position: relative;
+		text-align: center;
+		width: 100%;
+		min-width: 320px;
+		z-index: 1;
+		@include mq-min($bpDesktop)
+		{
+			min-width: 960px;
+		}
+	}
+}
+
+// plugins
+//@import "plugins/bx-slider";
+
+// layout
+@import "layout/page";
+
+// modules
+@import "modules/grid";
+
+// helpers
+@import "helpers";
+
+// fixes
+@import "fixes";

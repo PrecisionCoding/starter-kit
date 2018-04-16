@@ -1,0 +1,39 @@
+﻿$critical: false;
+$deferred: true;
+
+@import "config";
+@import "reset";
+@import "cms";
+@import "forms";
+
+// base
+html
+{
+	@include deferred
+	{
+		
+	}	
+}
+
+body
+{
+	@include deferred
+	{
+		
+	}	
+}
+
+// plugins
+//@import "plugins/bx-slider";
+
+// layout
+@import "layout/page";
+
+// modules
+@import "modules/grid";
+
+// helpers
+@import "helpers";
+
+// fixes
+@import "fixes";

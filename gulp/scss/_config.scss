@@ -16,7 +16,6 @@ $colorPrimary: #5eb1c8;
 
 // links
 $colorLink: $colorPrimary;
-$colorLinkHover: $colorPrimary;
 
 // 50 shades
 $colorGrey: #999;
@@ -259,6 +258,27 @@ $bpLarge: 1280px; // for 1240px
 	-o-object-fit: $a;
 	object-fit: $a;
 }
+
+// critical / deferred
+$critical: true !default;
+$deferred: false !default;
+
+@mixin critical 
+{
+  @if $critical 
+	{ 
+		@content;
+  }
+}
+
+@mixin deferred
+{
+	@if $deferred 
+	{ 
+		@content;
+	}
+}
+
 
 // media queries
 $mq: false !default;

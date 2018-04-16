@@ -1,0 +1,10 @@
+﻿@import "../config";
+
+.m-grid
+{
+	@include critical
+	{
+		margin: 0;
+		padding: 0;
+	}		
+}

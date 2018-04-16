@@ -3,32 +3,91 @@
 // visibility
 .offscreen
 {
-	height: 0;
-	left: -9999px;
-	margin: 0;
-	padding: 0;
-	position: absolute;
-	@include text-hidden();
-	width: 0;
-	z-index: -1;
+	@include critical
+	{
+		height: 0;
+		left: -9999px;
+		margin: 0;
+		padding: 0;
+		position: absolute;
+		@include text-hidden();
+		width: 0;
+		z-index: -1;
+	}	
 }
 
 .hide
 {
-	display: none;
+	@include critical
+	{
+		display: none;
+	}	
 }
 
 .hide-on-mobile
 {
-	@include mq-max($bpMobileLarge - 1)
+	@include critical
 	{
-		display: none;
-	}
+		@include mq-max($bpMobileLarge - 1)
+		{
+			display: none;
+		}
+	}	
 }
 
 .hide-on-mobile-large
 {
-	@include mq-min($bpMobileLarge)
+	@include critical
+	{
+		@include mq-min($bpMobileLarge)
+		{
+			@include mq-max($bpTablet - 1)
+			{
+				display: none;
+			}
+		}
+	}
+}
+
+.hide-on-mobile-large-or-smaller
+{
+	@include critical
+	{
+		@include mq-max($bpMobileLarge - 1)
+		{
+			display: none;
+		}
+	}
+}
+
+.hide-on-mobile-large-or-larger
+{
+	@include critical
+	{
+		@include mq-min($bpMobileLarge)
+		{
+			display: none;
+		}
+	}
+}
+
+.hide-on-tablet
+{
+	@include critical
+	{
+		@include mq-min($bpTablet)
+		{
+			@include mq-max($bpTabletLarge - 1)
+			{
+				display: none;
+			}
+		}
+	}
+}
+
+.hide-on-tablet-or-smaller
+{
+	@include critical
 	{
 		@include mq-max($bpTablet - 1)
 		{
@@ -37,25 +96,34 @@
 	}
 }
 
-.hide-on-mobile-large-or-smaller
+.hide-on-tablet-or-larger
 {
-	@include mq-max($bpMobileLarge - 1)
+	@include critical
 	{
-		display: none;
+		@include mq-min($bpTablet)
+		{
+			display: none;
+		}
 	}
 }
 
-.hide-on-mobile-large-or-larger
+.hide-on-tablet-large
 {
-	@include mq-min($bpMobileLarge)
+	@include critical
 	{
-		display: none;
+		@include mq-min($bpTabletLarge)
+		{
+			@include mq-max($bpDesktop - 1)
+			{
+				display: none;
+			}
+		}
 	}
 }
 
-.hide-on-tablet
+.hide-on-tablet-large-or-smaller
 {
-	@include mq-min($bpTablet)
+	@include critical
 	{
 		@include mq-max($bpTabletLarge - 1)
 		{
@@ -64,25 +132,34 @@
 	}
 }
 
-.hide-on-tablet-or-smaller
+.hide-on-tablet-large-or-larger
 {
-	@include mq-max($bpTablet - 1)
+	@include critical
 	{
-		display: none;
+		@include mq-min($bpTabletLarge)
+		{
+			display: none;
+		}
 	}
 }
 
-.hide-on-tablet-or-larger
+.hide-on-desktop
 {
-	@include mq-min($bpTablet)
+	@include critical
 	{
-		display: none;
+		@include mq-min($bpDesktop)
+		{
+			@include mq-max($bpDesktopLarge - 1)
+			{
+				display: none;
+			}
+		}
 	}
 }
 
-.hide-on-tablet-large
+.hide-on-desktop-or-smaller
 {
-	@include mq-min($bpTabletLarge)
+	@include critical
 	{
 		@include mq-max($bpDesktop - 1)
 		{
@@ -91,56 +168,27 @@
 	}
 }
 
-.hide-on-tablet-large-or-smaller
+.hide-on-desktop-or-larger
 {
-	@include mq-max($bpTabletLarge - 1)
+	@include critical
 	{
-		display: none;
-	}
-}
-
-.hide-on-tablet-large-or-larger
-{
-	@include mq-min($bpTabletLarge)
-	{
-		display: none;
-	}
-}
-
-.hide-on-desktop
-{
-	@include mq-min($bpDesktop)
-	{
-		@include mq-max($bpDesktopLarge - 1)
+		@include mq-min($bpDesktop)
 		{
 			display: none;
 		}
 	}
 }
 
-.hide-on-desktop-or-smaller
-{
-	@include mq-max($bpDesktop - 1)
-	{
-		display: none;
-	}
-}
-
-.hide-on-desktop-or-larger
-{
-	@include mq-min($bpDesktop)
-	{
-		display: none;
-	}
-}
-
 .hide-on-desktop-large
 {
-	@include mq-min($bpDesktopLarge)
+	@include critical
 	{
-		@include mq-max($bpLarge - 1)
+		@include mq-min($bpDesktopLarge)
 		{
-			display: none;
+			@include mq-max($bpLarge - 1)
+			{
+				display: none;
+			}
 		}
 	}
 }
@@ -149,15 +197,21 @@
 {
 	@include mq-max($bpDesktopLarge - 1)
 	{
-		display: none;
+		@include critical
+		{
+			display: none;
+		}
 	}
 }
 
 .hide-on-large
 {
-	@include mq-min($bpLarge)
+	@include critical
 	{
-		display: none;
+		@include mq-min($bpLarge)
+		{
+			display: none;
+		}
 	}
 }
 
@@ -166,7 +220,10 @@
 {
 	.js &
 	{
-		display: none;
+		@include critical
+		{
+			display: none;
+		}
 	}
 }
 
@@ -174,27 +231,42 @@
 {
 	.no-js &
 	{
-		display: none;
+		@include critical
+		{
+			display: none;
+		}
 	}
 }
 
 // alignment
-.align-left
+.align
 {
-	text-align: left;
-}
-
-.align-center
-{
-	text-align: center;
-}
-
-.align-right
-{
-	text-align: right;
-}
-
-.align-justify
-{
-	text-align: justify;
+	&-left
+	{
+		@include critical
+		{
+			text-align: left;
+		}	
+	}
+	&-right
+	{
+		@include critical
+		{
+			text-align: right;
+		}	
+	}
+	&-centre, &-center
+	{
+		@include critical
+		{
+			text-align: center;
+		}	
+	}
+	&-justify
+	{
+		@include critical
+		{
+			text-align: justify;
+		}	
+	}
 }
