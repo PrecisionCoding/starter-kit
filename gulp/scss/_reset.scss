@@ -1,0 +1,180 @@
+﻿@import "config";
+
+// reset based on: http://meyerweb.com/eric/tools/css/reset/
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p,
+blockquote, pre, a, abbr, acronym, address, cite, code, del, dfn, em,
+img, ins, kbd, q, s, samp, small, strong, sub, sup, var, b, u, i,
+center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption,
+tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption,
+figure, footer, header, hgroup, main, menu, nav, section, summary, time, mark, audio, video,
+input, select, textarea, button
+{
+	border: 0;
+	@include box-sizing();
+	font: inherit;
+	font-size: 100%;
+	margin: 0;
+	outline: 0;
+	padding: 0;
+	vertical-align: baseline;
+}
+
+main, article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, audio, video, canvas
+{
+	display: block;
+}
+
+body
+{
+	line-height: 1;
+}
+
+blockquote, q
+{
+	quotes: none;
+
+	&:before, &:after
+	{
+		content: '';
+		content: none;
+	}
+}
+
+:focus
+{
+	outline: none;
+}
+
+table
+{
+	border-collapse: collapse;
+	border-spacing: 0;
+	width: 100%;
+}
+
+abbr[title]
+{
+	border-bottom: 0;
+	cursor: help;
+	text-decoration: none;
+}
+
+address
+{
+	display: block;
+	font-style: normal;
+	margin: 0;
+	padding: 0;
+}
+
+strong, b
+{
+	font-weight: bold;
+}
+
+em, i
+{
+	font-style: italic;
+}
+
+small
+{
+	color: $colorGrey;
+	font-size: 85%;
+	line-height: 85%;
+}
+
+sub, sup
+{
+	font-size: 85%;
+	line-height: 0;
+	margin: 0;
+	padding: 0;
+	position: relative;
+	vertical-align: baseline;
+}
+
+sup
+{
+	top: -0.5em;
+}
+
+sub
+{
+	bottom: -0.25em;
+}
+
+picture, img
+{
+	border: 0;
+	display: block;
+	height: auto;
+	margin: 0 auto;
+	padding: 0;
+	width: auto;
+	max-width: 100%;
+}
+
+button, html input[type="button"], html input[type="reset"], html input[type="submit"]
+{
+	-webkit-appearance: button;
+}
+
+button::-moz-focus-inner, input::-moz-focus-inner
+{
+	border: 0;
+	margin: 0;
+	padding: 0;
+}
+
+// links
+a
+{
+	color: $colorLink;
+	display: inline-block;
+	@include transition(all .3s);
+	text-decoration: underline;
+	&:hover, &:focus
+	{
+		color: $colorLinkHover;
+		text-decoration: none;
+	}
+	&:focus
+	{
+		outline: 1px dotted $colorLink;
+	}
+}
+
+// styles
+b, strong
+{
+	font-weight: 600;
+}
+
+i, em
+{
+	font-style: italic;
+}
+
+// headers
+h1, h2, h3, h4, h5, h6
+{
+	@include font-size($fontSize);
+	@include line-height($fontHeight);
+	margin: 0;
+	padding: 0 0 15px 0;
+}
+
+// content
+p
+{
+	margin: 0;
+	padding: 0 0 15px 0;
+}
+
+ul, ol, li
+{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}

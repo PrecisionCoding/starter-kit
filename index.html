@@ -32,22 +32,46 @@
 	<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-	<link href="/css/site.css" rel="stylesheet" media="screen" />
+	<link href="/css/site.css?v=1" rel="stylesheet" media="screen" />
 
 	<!--[if lt IE 9]>
-		<link href="/css/site-ie.css" rel="stylesheet" media="screen" />
+		<link href="/css/site-ie.css?v=1" rel="stylesheet" media="screen" />
 		<script>!function(a,b){function c(a,b){var c=a.createElement("p"),d=a.getElementsByTagName("head")[0]||a.documentElement;return c.innerHTML="x<style>"+b+"</style>",d.insertBefore(c.lastChild,d.firstChild)}function d(){var a=t.elements;return"string"==typeof a?a.split(" "):a}function e(a,b){var c=t.elements;"string"!=typeof c&&(c=c.join(" ")),"string"!=typeof a&&(a=a.join(" ")),t.elements=c+" "+a,j(b)}function f(a){var b=s[a[q]];return b||(b={},r++,a[q]=r,s[r]=b),b}function g(a,c,d){if(c||(c=b),l)return c.createElement(a);d||(d=f(c));var e;return e=d.cache[a]?d.cache[a].cloneNode():p.test(a)?(d.cache[a]=d.createElem(a)).cloneNode():d.createElem(a),!e.canHaveChildren||o.test(a)||e.tagUrn?e:d.frag.appendChild(e)}function h(a,c){if(a||(a=b),l)return a.createDocumentFragment();c=c||f(a);for(var e=c.frag.cloneNode(),g=0,h=d(),i=h.length;i>g;g++)e.createElement(h[g]);return e}function i(a,b){b.cache||(b.cache={},b.createElem=a.createElement,b.createFrag=a.createDocumentFragment,b.frag=b.createFrag()),a.createElement=function(c){return t.shivMethods?g(c,a,b):b.createElem(c)},a.createDocumentFragment=Function("h,f","return function(){var n=f.cloneNode(),c=n.createElement;h.shivMethods&&("+d().join().replace(/[\w\-:]+/g,function(a){return b.createElem(a),b.frag.createElement(a),'c("'+a+'")'})+");return n}")(t,b.frag)}function j(a){a||(a=b);var d=f(a);return!t.shivCSS||k||d.hasCSS||(d.hasCSS=!!c(a,"article,aside,dialog,figcaption,figure,footer,header,hgroup,main,nav,section{display:block}mark{background:#FF0;color:#000}template{display:none}")),l||i(a,d),a}var k,l,m="3.7.2",n=a.html5||{},o=/^<|^(?:button|map|select|textarea|object|iframe|option|optgroup)$/i,p=/^(?:a|b|code|div|fieldset|h1|h2|h3|h4|h5|h6|i|label|li|ol|p|q|span|strong|style|table|tbody|td|th|tr|ul)$/i,q="_html5shiv",r=0,s={};!function(){try{var a=b.createElement("a");a.innerHTML="<xyz></xyz>",k="hidden"in a,l=1==a.childNodes.length||function(){b.createElement("a");var a=b.createDocumentFragment();return"undefined"==typeof a.cloneNode||"undefined"==typeof a.createDocumentFragment||"undefined"==typeof a.createElement}()}catch(c){k=!0,l=!0}}();var t={elements:n.elements||"abbr article aside audio bdi canvas data datalist details dialog figcaption figure footer header hgroup main mark meter nav output picture progress section summary template time video",version:m,shivCSS:n.shivCSS!==!1,supportsUnknownElements:l,shivMethods:n.shivMethods!==!1,type:"default",shivDocument:j,createElement:g,createDocumentFragment:h,addElements:e};a.html5=t,j(b)}(this,document);</script>
 	<![endif]-->
 
-	<link href="/css/print.css" rel="stylesheet" media="print" />
+	<link href="/css/print.css?v=1" rel="stylesheet" media="print" />
 
 	<link href="/favicon.png" rel="icon" type="image/x-icon" />
 	<link href="/favicon.png" rel="shortcut icon" type="image/x-icon" />
 	<meta name="format-detection" content="telephone=no" />
-	<meta name="theme-color" content="#cc0000" />
+	<meta name="theme-color" content="#5eb1c8" />
 </head>
 <body id="top" class="preload">
 
-	<script src="/js/site.js"></script>
+	<div class="l-page">
+		<h1 class="l-page__title">Starter Kit</h1>
+	</div>
+
+	<script src="/js/critical.js?v=1"></script>
+	<script>
+		function load_deferred_javascript() {
+			$(function () {
+				var e = document.createElement('script');
+				e.src = '/js/deferred.js?v=1';
+				document.body.appendChild(e);
+			});
+		};
+		if (window.addEventListener) {
+			window.addEventListener('load', load_deferred_javascript, false);
+		}
+		else if (window.attachEvent) {
+			window.attachEvent('onload', load_deferred_javascript);
+		}
+		else {
+			window.onload = load_deferred_javascript;
+		}
+	</script>
+
+
 </body>
 </html>

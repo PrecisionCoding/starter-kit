@@ -1,0 +1,200 @@
+﻿@import "config";
+
+// visibility
+.offscreen
+{
+	height: 0;
+	left: -9999px;
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	@include text-hidden();
+	width: 0;
+	z-index: -1;
+}
+
+.hide
+{
+	display: none;
+}
+
+.hide-on-mobile
+{
+	@include mq-max($bpMobileLarge - 1)
+	{
+		display: none;
+	}
+}
+
+.hide-on-mobile-large
+{
+	@include mq-min($bpMobileLarge)
+	{
+		@include mq-max($bpTablet - 1)
+		{
+			display: none;
+		}
+	}
+}
+
+.hide-on-mobile-large-or-smaller
+{
+	@include mq-max($bpMobileLarge - 1)
+	{
+		display: none;
+	}
+}
+
+.hide-on-mobile-large-or-larger
+{
+	@include mq-min($bpMobileLarge)
+	{
+		display: none;
+	}
+}
+
+.hide-on-tablet
+{
+	@include mq-min($bpTablet)
+	{
+		@include mq-max($bpTabletLarge - 1)
+		{
+			display: none;
+		}
+	}
+}
+
+.hide-on-tablet-or-smaller
+{
+	@include mq-max($bpTablet - 1)
+	{
+		display: none;
+	}
+}
+
+.hide-on-tablet-or-larger
+{
+	@include mq-min($bpTablet)
+	{
+		display: none;
+	}
+}
+
+.hide-on-tablet-large
+{
+	@include mq-min($bpTabletLarge)
+	{
+		@include mq-max($bpDesktop - 1)
+		{
+			display: none;
+		}
+	}
+}
+
+.hide-on-tablet-large-or-smaller
+{
+	@include mq-max($bpTabletLarge - 1)
+	{
+		display: none;
+	}
+}
+
+.hide-on-tablet-large-or-larger
+{
+	@include mq-min($bpTabletLarge)
+	{
+		display: none;
+	}
+}
+
+.hide-on-desktop
+{
+	@include mq-min($bpDesktop)
+	{
+		@include mq-max($bpDesktopLarge - 1)
+		{
+			display: none;
+		}
+	}
+}
+
+.hide-on-desktop-or-smaller
+{
+	@include mq-max($bpDesktop - 1)
+	{
+		display: none;
+	}
+}
+
+.hide-on-desktop-or-larger
+{
+	@include mq-min($bpDesktop)
+	{
+		display: none;
+	}
+}
+
+.hide-on-desktop-large
+{
+	@include mq-min($bpDesktopLarge)
+	{
+		@include mq-max($bpLarge - 1)
+		{
+			display: none;
+		}
+	}
+}
+
+.hide-on-desktop-large-or-larger
+{
+	@include mq-max($bpDesktopLarge - 1)
+	{
+		display: none;
+	}
+}
+
+.hide-on-large
+{
+	@include mq-min($bpLarge)
+	{
+		display: none;
+	}
+}
+
+// js
+.hide-on-js
+{
+	.js &
+	{
+		display: none;
+	}
+}
+
+.show-on-js
+{
+	.no-js &
+	{
+		display: none;
+	}
+}
+
+// alignment
+.align-left
+{
+	text-align: left;
+}
+
+.align-center
+{
+	text-align: center;
+}
+
+.align-right
+{
+	text-align: right;
+}
+
+.align-justify
+{
+	text-align: justify;
+}

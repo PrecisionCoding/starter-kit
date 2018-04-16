@@ -1,0 +1,300 @@
+﻿$cssversion: 1;
+
+// colours
+$colorBase: #333;
+$colorBlack: #000;
+$colorWhite: #fff;
+$colorOffWhite: #eee;
+$colorError: #ed1c24;
+$colorSuccess: #8dc63f;
+$colorWarning: #f7941d;
+$colorNotice: #7accc8;
+
+// site specific
+$colorBackground: #eee;
+$colorPrimary: #5eb1c8;
+
+// links
+$colorLink: $colorPrimary;
+$colorLinkHover: $colorPrimary;
+
+// 50 shades
+$colorGrey: #999;
+$colorGreyDark: darken($colorGrey, 10%);
+$colorGreyLight: lighten($colorGrey, 10%);
+$colorBorder: #ddd;
+$colorDivider: #ddd;
+
+// fonts
+$fontSize: 16px;
+$fontHeight: 22px;
+$fontSimple: Helvetica, Arial, sans-serif;
+$fontBase: "Open Sans", $fontSimple;
+
+// responsive breakpoints
+$maxPageWidth: 1240px;
+$maxContentWidth: 860px;
+
+$bpMobileLarge: 500px; // for 480px
+$bpTablet: 620px; // for 600px
+$bpTabletLarge: 788px; // for 768px
+$bpDesktop: 980px; // for 960px;
+$bpDesktopLarge: 1100px; // for 1080px
+$bpLarge: 1280px; // for 1240px
+
+// functions
+@function calculateRem($a)
+{
+	$b: $a / 16px;
+	@return $b * 1rem;
+}
+
+// mixins
+@mixin font-size($a: $fontSize)
+{
+	font-size: $a;
+	font-size: calculateRem($a);
+}
+
+@mixin line-height($a: $fontHeight)
+{
+	line-height: $a;
+	line-height: calculateRem($a);
+}
+
+@mixin bg($url, $repeat: no-repeat, $position: 0 0, $other: null)
+{
+	background: url(#{$url}?v=#{$cssversion}) $repeat $position $other;
+}
+
+@mixin min-height($a: 5px)
+{
+	min-height: $a;
+	height: auto !important;
+	height: $a;
+}
+
+@mixin filter($a)
+{
+	-moz-filter: $a;
+	-ms-filter: $a;
+	-webkit-filter: $a;
+	filter: $a;
+}
+
+@mixin gradient-vertical($b: #eee, $a: #fff)
+{
+	background-image: -webkit-gradient(linear, left top, left bottom, from($b), to($a));
+	background-image: -webkit-linear-gradient(top, $b, $a);
+	background-image: -moz-linear-gradient(top, $b, $a);
+	background-image: -ms-linear-gradient(top, $b, $a);
+	background-image: -o-linear-gradient(top, $b, $a);
+	background-image: linear-gradient(top, $b, $a);
+	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#{$b}', EndColorStr='#{$a}');
+}
+
+@mixin gradient-horizontal($b: #eee, $a: #fff)
+{
+	background-image: -webkit-gradient(linear, left top, right top, from($b), to($a));
+	background-image: -webkit-linear-gradient(left, $b, $a);
+	background-image: -moz-linear-gradient(left, $b, $a);
+	background-image: -ms-linear-gradient(left, $b, $a);
+	background-image: -o-linear-gradient(left, $b, $a);
+	background-image: linear-gradient(left, $b, $a);
+	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#{$b}', EndColorStr='#{$a}');
+}
+
+@mixin transition($a...)
+{
+	-moz-transition: $a;
+	-o-transition: $a;
+	-webkit-transition: $a;
+	transition: $a;
+}
+
+@mixin transform-origin($a)
+{
+	-moz-transform-origin: $a;
+	-ms-transform-origin: $a;
+	-o-transform-origin: $a;
+	-webkit-transform-origin: $a;
+	transform-origin: $a;
+}
+
+@mixin animation($a)
+{
+	-moz-animation: $a;
+	-o-animation: $a;
+	-webkit-animation: $a;
+	animation: $a;
+}
+
+@mixin animation-pause()
+{
+	-moz-animation-play-state: paused;
+	-o-animation-play-state: paused;
+	-webkit-animation-play-state: paused;
+	animation-play-state: paused;
+}
+
+@mixin background-size($a: 100% auto)
+{
+	background-size: $a;
+}
+
+@mixin background-clip($a: padding-box)
+{
+	-moz-background-clip: $a;
+	-webkit-background-clip: $a;
+	background-clip: $a;
+}
+
+@mixin box-shadow($a: 1px 1px 2px 0 rgba(0,0,0,.08))
+{
+	box-shadow: $a;
+}
+
+@mixin box-sizing($a: border-box)
+{
+	-moz-box-sizing: $a;
+	-webkit-box-sizing: $a;
+	box-sizing: $a;
+}
+
+@mixin border-radius($a: 2px)
+{
+	border-radius: $a;
+}
+
+@mixin border-radius-adv($tl: 2px, $tr: 2px, $bl: 2px, $br: 2px)
+{
+	border-top-right-radius: $tr;
+	border-bottom-right-radius: $br;
+	border-bottom-left-radius: $bl;
+	border-top-left-radius: $tl;
+	@include background-clip();
+}
+
+@mixin text-shadow($a: 1px 1px 1px rgba(0,0,0,.2))
+{
+	text-shadow: $a;
+}
+
+@mixin text-overflow($a: ellipsis)
+{
+	overflow: hidden;
+	-ms-text-overflow: $a;
+	-o-text-overflow: $a;
+	text-overflow: $a;
+	white-space: nowrap;
+}
+
+@mixin text-hidden()
+{
+	overflow: hidden;
+	text-indent: -9999px;
+}
+
+@mixin remove-text-hidden()
+{
+	overflow: visible;
+	text-indent: 0;
+}
+
+@mixin text-size-adjust($a: 100%)
+{
+	-moz-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+	text-size-adjust: 100%;
+}
+
+@mixin placeholder-text($a: $colorGrey)
+{
+	&:-moz-placeholder
+	{
+		color: $a;
+	}
+
+	&::-moz-placeholder
+	{
+		color: $a;
+	}
+
+	&:-ms-input-placeholder
+	{
+		color: $a;
+	}
+
+	&::-webkit-input-placeholder
+	{
+		color: $a;
+	}
+}
+
+@mixin transform($a)
+{
+	-moz-transform: $a;
+	-ms-transform: $a;
+	-o-transform: $a;
+	-webkit-transform: $a;
+	transform: $a;
+}
+
+@mixin rotate($a: -5deg)
+{
+	@include transform(rotate($a));
+}
+
+@mixin user-select($a: none)
+{
+	-moz-user-select: $a;
+	-ms-user-select: $a;
+	-webkit-user-select: $a;
+	user-select: $a;
+}
+
+@mixin object-fit($a: cover)
+{
+	-o-object-fit: $a;
+	object-fit: $a;
+}
+
+// media queries
+$mq: false !default;
+
+@mixin mq-min($a)
+{
+	@if $mq
+	{
+		@if $mq >= $a
+		{
+			@content;
+		}
+	}
+	@else
+	{
+		@media screen and (min-width: $a)
+		{
+			@content;
+		}
+	}
+}
+
+@mixin mq-max($a)
+{
+	@if $mq
+	{
+		@if $mq <= $a
+		{
+			@content;
+		}
+	}
+	@else
+	{
+		@media screen and (max-width: $a)
+		{
+			@content;
+		}
+	}
+}
