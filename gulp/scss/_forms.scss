@@ -1,5 +1,7 @@
 ﻿@import "config";
 
+$maxFormWidth: 600px;
+
 // rows
 .form-row, .form-action
 {
@@ -49,7 +51,7 @@
 		@include transition(all .3s);
 		vertical-align: middle;
 		width: 100%;
-		max-width: 600px;
+		max-width: $maxFormWidth;
 	}	
 	&:last-child
 	{
@@ -309,6 +311,7 @@
 				@include line-height($fontHeight - 2);
 				margin: 0;
 				padding: 5px 0 0 0;
+				max-width: $maxFormWidth;
 			}	
 			a
 			{
@@ -353,6 +356,7 @@
 			@include line-height($fontHeight - 2);
 			margin: 0;
 			padding: 5px 0 0 0;
+			max-width: $maxFormWidth;
 		}
 		a
 		{
