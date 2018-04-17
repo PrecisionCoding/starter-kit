@@ -194,4 +194,36 @@ $gutterWide: 20px;
 			}
 		}
 	}
+	&--content
+	{
+		@include critical
+		{
+			margin: 0;
+		}		
+		> .m-grid__inner
+		{
+			@include critical
+			{
+				margin-left: -$gutterWide;
+			}			
+			> .m-grid__row
+			{
+				> .m-grid__col
+				{
+					@include critical
+					{
+						margin-bottom: 0;
+						padding-left: $gutterWide;
+					}					
+				}
+			}
+		}
+	}
+	&--tight
+	{
+		@include critical
+		{
+			margin-bottom: -$gutter;
+		}		
+	}
 }

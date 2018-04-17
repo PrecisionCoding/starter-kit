@@ -20,13 +20,37 @@ $maxFormWidth: 600px;
 			@include line-height($fontHeight);
 		}
 	}
+	> label
+	{
+		@include critical
+		{
+			display: block;
+			@include font-size($fontSize - 1);
+			@include line-height($fontHeight - 1);
+			padding-bottom: 5px;
+		}
+	}
 }
 
 .form-action
 {
+	&:not(:first-child)
+	{
+		@include critical
+		{
+			padding-top: 10px;
+		}
+	}
+}
+
+// required
+.form-required
+{
 	@include critical
 	{
-		padding-top: 10px;
+		color: $colorError !important;
+		font-family: $fontSimple;
+		font-weight: bold;
 	}
 }
 
@@ -45,7 +69,7 @@ $maxFormWidth: 600px;
 		font-family: $fontSimple;
 		@include font-size($fontSize);
 		@include line-height($fontHeight);
-		margin: 0 10px 0 0;
+		margin: 0;
 		padding: 8px 10px;
 		@include placeholder-text($colorGreyDark);
 		@include transition(all .3s);
@@ -53,12 +77,12 @@ $maxFormWidth: 600px;
 		width: 100%;
 		max-width: $maxFormWidth;
 	}	
-	&:last-child
+	&:not(:last-child)
 	{
 		@include critical
 		{
-			margin-right: 0;
-		}		
+			margin-right: 10px;
+		}
 	}
 	&:hover
 	{
@@ -76,6 +100,63 @@ $maxFormWidth: 600px;
 			@include placeholder-text($colorBase);
 		}
 	}
+	&.disabled, &[disabled]
+	{
+		@include critical
+		{
+			background: $colorOffWhite !important;
+			border-color: $colorDivider !important;
+			color: $colorGrey;
+			cursor: not-allowed;
+			opacity: .5;
+		}
+	}
+	&.input-validation-error
+	{
+		@include deferred
+		{
+			border-color: $colorError;
+			color: $colorError;
+			@include placeholder-text($colorError);
+		}
+		&:focus 
+		{
+			@include deferred
+			{
+				background-color: $colorWhite;
+				border-color: $colorGreyDark;
+				color: $colorBase;
+				@include placeholder-text($colorBase);
+			}
+			
+		}
+	}
+	&--small
+	{
+		@include critical
+		{
+			width: 30%;
+			width: calc(33.3333% - 10px);
+			max-width: 193px;
+		}
+	}
+	&--medium
+	{
+		@include critical
+		{
+			width: 45%;
+			width: calc(50% - 10px);
+			max-width: 295px;
+		}
+	}
+	&--large
+	{
+		@include critical
+		{
+			width: 75%;
+			max-width: 396px;
+		}
+	}
 	&--no-border
 	{
 		@include critical
@@ -83,6 +164,14 @@ $maxFormWidth: 600px;
 			border-color: $colorWhite;
 		}		
 	}
+}
+
+.form-text
+{
+	@include critical
+	{
+		-webkit-appearance: none;
+	}	
 }
 
 .form-textarea
@@ -94,6 +183,91 @@ $maxFormWidth: 600px;
 .form-select
 {
 	padding: 9px 6px 10px 6px;
+}
+
+// upload
+.form-upload
+{
+	@include critical
+	{
+		border: 2px solid $colorDivider;
+		@include box-sizing();
+		display: inline-block;
+		margin: 0;
+		padding: 8px 10px;
+		vertical-align: middle;
+		width: 100%;
+		max-width: $maxFormWidth;
+	}
+	input
+	{
+		@include deferred
+		{
+			cursor: pointer;
+			display: block;
+			margin: 0;
+			width: 100%;
+		}
+	}
+	&:not(:last-child)
+	{
+		@include critical
+		{
+			margin-right: 10px;
+		}
+	}
+}
+
+// checks / radios
+.form-checks
+{
+	@include critical
+	{
+		font-size: 0;
+		line-height: 0;
+		list-style: none;
+		margin: 0;
+		padding: 0 0 10px 0;
+		text-align: left;
+		max-width: $maxFormWidth;
+	}
+	&__item
+	{
+		@include critical
+		{
+			@include box-sizing();
+			@include font-size($fontSize - 1);
+			@include line-height($fontHeight - 1);
+			list-style: none;
+			margin: 0;
+			padding: 0 0 10px 0;
+		}
+		label
+		{
+			@include critical
+			{
+				cursor: pointer;
+				display: block;
+				@include min-height(15px);
+				margin: 0;
+				padding: 0 0 0 20px;
+				position: relative;
+				z-index: 1;
+			}			
+			input
+			{
+				@include critical
+				{
+					left: 0;
+					margin: 0;
+					padding: 0;
+					position: absolute;
+					top: 4px;
+					z-index: 1;
+				}
+			}
+		}
+	}
 }
 
 // buttons
@@ -110,7 +284,7 @@ $maxFormWidth: 600px;
 		@include font-size($fontSize);
 		font-weight: 600;
 		@include line-height($fontHeight);
-		margin: 0 10px 0 0;
+		margin: 0;
 		padding: 8px 15px;
 		text-align: center;
 		text-decoration: none;
@@ -120,11 +294,11 @@ $maxFormWidth: 600px;
 		white-space: nowrap;
 		min-width: 100px;
 	}
-	&:last-child
+	&:not(:last-child)
 	{
 		@include critical
 		{
-			margin-right: 0;
+			margin-right: 10px;
 		}		
 	}
 	&:focus, &:hover
@@ -143,6 +317,26 @@ $maxFormWidth: 600px;
 		{
 			outline: 1px dotted $colorBase;
 		}
+	}
+	&.disabled, &[disabled] 
+	{
+		@include critical
+		{
+			background: $colorOffWhite !important;
+			border-color: $colorOffWhite !important;
+			color: $colorGrey !important;
+			cursor: not-allowed;
+			opacity: .5;
+		}		
+	}
+	&--block
+	{
+		@include critical
+		{
+			display: block;
+			margin: 0;
+			width: 100%;
+		}		
 	}
 	&--success
 	{
@@ -209,6 +403,15 @@ $maxFormWidth: 600px;
 				color: $colorBase;
 			}
 		}
+		&.disabled, &[disabled] 
+		{
+			@include critical
+			{
+				background: none !important;
+				border-color: transparent !important;
+				color: $colorGrey !important;
+			}			
+		}
 	}
 	&--clear
 	{
@@ -227,6 +430,15 @@ $maxFormWidth: 600px;
 				color: $colorBase;
 			}
 		}
+		&.disabled, &[disabled] 
+		{
+			@include critical
+			{
+				background: none !important;
+				border-color: $colorWhite !important;
+				color: $colorWhite !important;
+			}			
+		}
 	}
 	&--line
 	{
@@ -244,6 +456,13 @@ $maxFormWidth: 600px;
 				border-color: $colorPrimary;
 				color: $colorWhite;
 			}
+		}
+		&.disabled, &[disabled] 
+		{
+			@include critical
+			{
+				background: none !important;
+			}			
 		}
 	}
 }
@@ -307,6 +526,7 @@ $maxFormWidth: 600px;
 				background: none;
 				border: none;
 				color: $colorError;
+				display: none;
 				@include font-size($fontSize - 2);
 				@include line-height($fontHeight - 2);
 				margin: 0;
@@ -335,7 +555,14 @@ $maxFormWidth: 600px;
 						outline-color: $colorError;
 					}
 				}
-		}		
+		}	
+			&.field-validation-error 
+			{
+				@include critical
+				{
+					display: block;
+				}				
+			}	
 		}
 	}
 	&-warning
