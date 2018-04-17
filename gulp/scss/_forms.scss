@@ -309,7 +309,30 @@
 				@include line-height($fontHeight - 2);
 				margin: 0;
 				padding: 5px 0 0 0;
-			}			
+			}	
+			a
+			{
+				@include critical
+				{
+					color: $colorError;
+					text-decoration: underline;
+				}
+				&:focus, &:hover
+				{
+					@include critical
+					{
+						color: $colorError;
+						text-decoration: none;
+					}
+				}
+				&:focus
+				{
+					@include critical
+					{
+						outline-color: $colorError;
+					}
+				}
+		}		
 		}
 	}
 	&-warning
@@ -330,6 +353,29 @@
 			@include line-height($fontHeight - 2);
 			margin: 0;
 			padding: 5px 0 0 0;
-		}	
+		}
+		a
+		{
+			@include critical
+			{
+				color: $colorGrey;
+				text-decoration: underline;
+			}
+			&:focus, &:hover
+			{
+				@include critical
+				{
+					color: $colorGrey;
+					text-decoration: none;
+				}
+			}
+			&:focus
+			{
+				@include critical
+				{
+					outline-color: $colorGrey;
+				}
+			}
+		}
 	}
 }
