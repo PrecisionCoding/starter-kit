@@ -1,0 +1,265 @@
+﻿@import "../config";
+
+#popupFade
+{
+	@include critical
+	{
+		display: none;
+	}
+	@include deferred
+	{
+		background: $colorBlack;
+		background: rgba($colorBlack, .6);
+		bottom: 0;
+		left: 0;
+		margin: 0;
+		padding: 0;
+		position: fixed;
+		right: 0;
+		top: 0;
+		z-index: 9990;
+	}
+}
+
+#popupLoader
+{
+	@include critical
+	{
+		display: none;
+	}
+	@include deferred
+	{
+		@include bg('/images/loader.gif', no-repeat, 50% 50%);
+		background-color: $colorWhite;
+		@include border-radius(100%);
+		@include box-shadow(0 0 20px 0 rgba($colorBlack, .25));
+		height: 70px;
+		left: 50%;
+		margin: -35px 0 0 -35px;
+		padding: 0;
+		position: fixed;
+		top: 50%;
+		width: 70px;
+		z-index: 9998;
+	}	
+}
+
+.m-popup
+{
+	@include critical
+	{
+		display: none;
+	}
+	@include deferred
+	{
+		background: $colorWhite;
+		@include box-shadow(0 0 20px 0 rgba($colorBlack, .25));
+		left: 10px;
+		margin: 0;
+		padding: 0;
+		position: absolute;
+		right: 10px;
+		top: 50px;
+		z-index: 9999;
+		@include mq-min($bpMobileLarge)
+		{
+			left: 15px;
+			right: 15px;
+		}
+		@include mq-min($bpTablet)
+		{
+			left: 20px;
+			right: 20px;
+		}
+		@include mq-min($bpTabletLarge)
+		{
+			left: 50%;
+			margin-left: -375px;
+			right: auto;
+			width: 750px;
+		}
+		@include mq-min($bpDesktop)
+		{
+			margin-left: -450px;
+			width: 900px;
+		}
+		@include mq-min($bpDesktopLarge)
+		{
+			margin-left: -500px;
+			width: 1000px;
+		}
+	}
+	&__inner
+	{
+		@include deferred
+		{
+			@include min-height(100px);
+			margin: 0;
+			padding: 15px 15px 20px 15px;
+			text-align: left;
+			@include mq-min($bpDesktop)
+			{
+				padding: 20px 20px 25px 20px;
+			}
+			@include mq-min($bpDesktopLarge)
+			{
+				padding: 25px 25px 30px 25px;
+			}
+			@include mq-min($bpLarge)
+			{
+				padding: 30px 30px 35px 30px;
+			}
+		}
+	}
+	&__title
+	{
+		font-weight: 600;
+	}
+	&__video
+	{
+		@include deferred
+		{
+			background: $colorBlack;
+			height: 0;
+			margin: 0 auto;
+			overflow: hidden;
+			padding: 56.25% 0 0 0;
+			position: relative;
+			z-index: 1;
+		}
+		iframe
+		{
+			@include deferred
+			{
+				display: block;
+				height: 100%;
+				left: 0;
+				margin: 0;
+				padding: 0;
+				position: absolute;
+				top: 0;
+				width: 100%;
+				z-index: 1;
+			}			
+		}
+	}
+	&__actions
+	{
+		@include deferred
+		{
+			clear: both;
+			font-size: 0;
+			line-height: 0;
+			margin: -10px 0 0 -10px;
+			padding: 15px 0 0 0;
+			@include mq-min($bpTabletLarge)
+			{
+				padding-top: 20px;
+			}
+			@include mq-min($bpDesktop)
+			{
+				padding-top: 25px;
+			}
+			@include mq-min($bpDesktopLarge)
+			{
+				padding-top: 30px;
+			}
+		}		
+		&__item
+		{
+			@include deferred
+			{
+				@include box-sizing();
+				display: inline-block;
+				@include font-size($fontSize);
+				@include line-height($fontHeight);
+				margin: 0;
+				padding: 10px 0 0 10px;
+				vertical-align: top;
+			}			
+		}
+	}
+	&__close
+	{
+		@include deferred
+		{
+			background: $colorBlack;
+			border: 2px solid $colorWhite;
+			@include border-radius(100%);
+			@include box-shadow(1px 1px 5px 0 rgba($colorBlack, .5));
+			@include box-sizing();
+			display: block;
+			height: 30px;
+			margin: 0;
+			padding: 0;
+			position: absolute;
+			right: -15px;
+			@include text-hidden();
+			top: -15px;
+			width: 30px;
+			z-index: 1;
+		}
+		&:before, &:after
+		{
+			@include deferred
+			{
+				border-left: 2px solid $colorWhite;
+				content: "";
+				display: block;
+				height: 18px;
+				left: 50%;
+				margin: -9px 0 0 -1px;
+				padding: 0;
+				position: absolute;
+				top: 50%;
+				width: 0;
+				z-index: 1;
+			}
+		}
+		&:before
+		{
+			@include deferred
+			{
+				@include rotate(-45deg);
+			}
+		}
+		&:after
+		{
+			@include deferred
+			{
+				@include rotate(45deg);
+			}
+		}
+		&:focus, &:hover
+		{
+			@include deferred
+			{
+				background: $colorPrimary;
+			}
+		}
+	}
+	&--small
+	{
+		@include deferred
+		{
+			@include mq-min($bpTablet)
+			{
+				left: 50%;
+				margin-left: -300px;
+				right: auto;
+				width: 600px;
+			}
+		}
+	}
+	&--video
+	{
+		&__inner
+		{
+			@include deferred
+			{
+				background: $colorBlack;
+				padding: 10px;
+			}
+		}
+	}
+}

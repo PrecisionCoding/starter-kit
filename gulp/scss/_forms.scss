@@ -1,5 +1,6 @@
 ﻿@import "config";
 
+// rows
 .form-row, .form-action
 {
 	@include critical
@@ -7,7 +8,7 @@
 		font-size: 0;
 		line-height: 0;
 		margin: 0;
-		padding: 0 0 15px 0;
+		padding: 0 0 20px 0;
 	}
 	> *
 	{
@@ -23,6 +24,312 @@
 {
 	@include critical
 	{
-		padding-top: 15px;
+		padding-top: 10px;
+	}
+}
+
+// inputs
+.form-text, .form-textarea, .form-select
+{
+	@include critical
+	{
+		background: none;
+		background-color: $colorWhite;
+		@include background-clip();
+		border: 2px solid $colorDivider;
+		@include border-radius();
+		color: $colorGreyDark;
+		display: inline-block;
+		font-family: $fontSimple;
+		@include font-size($fontSize);
+		@include line-height($fontHeight);
+		margin: 0 10px 0 0;
+		padding: 8px 10px;
+		@include placeholder-text($colorGreyDark);
+		@include transition(all .3s);
+		vertical-align: middle;
+		width: 100%;
+		max-width: 600px;
+	}	
+	&:last-child
+	{
+		@include critical
+		{
+			margin-right: 0;
+		}		
+	}
+	&:hover
+	{
+		@include deferred
+		{
+			border-color: $colorGreyLight;
+		}
+	}
+	&:focus
+	{
+		@include deferred
+		{
+			border-color: $colorGreyDark;
+			color: $colorBase;
+			@include placeholder-text($colorBase);
+		}
+	}
+	&--no-border
+	{
+		@include critical
+		{
+			border-color: $colorWhite;
+		}		
+	}
+}
+
+.form-textarea
+{
+	height: 200px;
+	resize: vertical;
+}
+
+.form-select
+{
+	padding: 9px 6px 10px 6px;
+}
+
+// buttons
+.form-button
+{
+	@include critical
+	{
+		background: $colorPrimary;
+		border: 2px solid $colorPrimary;
+		@include border-radius(0);
+		color: $colorWhite;
+		cursor: pointer;
+		display: inline-block;
+		@include font-size($fontSize);
+		font-weight: 600;
+		@include line-height($fontHeight);
+		margin: 0 10px 0 0;
+		padding: 8px 15px;
+		text-align: center;
+		text-decoration: none;
+		@include transition(all .2s);
+		@include user-select();
+		vertical-align: middle;
+		white-space: nowrap;
+		min-width: 100px;
+	}
+	&:last-child
+	{
+		@include critical
+		{
+			margin-right: 0;
+		}		
+	}
+	&:focus, &:hover
+	{
+		@include deferred
+		{
+			background: $colorBase;
+			border-color: $colorBase;
+			color: $colorWhite;
+			text-decoration: none;
+		}
+	}
+	&:focus
+	{
+		@include deferred
+		{
+			outline: 1px dotted $colorBase;
+		}
+	}
+	&--success
+	{
+		@include critical
+		{
+			background: $colorSuccess;
+			border-color: $colorSuccess;
+			color: $colorWhite;
+		}
+	}
+	&--error
+	{
+		@include critical
+		{
+			background: $colorError;
+			border-color: $colorError;
+			color: $colorWhite;
+		}
+	}
+	&--warning
+	{
+		@include critical
+		{
+			background: $colorWarning;
+			border-color: $colorWarning;
+			color: $colorWhite;
+		}
+	}
+	&--base
+	{
+		@include critical
+		{
+			background: $colorBase;
+			border-color: $colorBase;
+			color: $colorWhite;
+		}
+		&:focus, &:hover
+		{
+			@include deferred
+			{
+				background: none;
+				border-color: $colorBase;
+				color: $colorBase;
+			}
+		}
+	}
+	&--text
+	{
+		@include critical
+		{
+			background: none;
+			border-color: transparent;
+			color: $colorPrimary;
+			padding-left: 10px;
+			padding-right: 10px;
+			min-width: unset;
+		}
+		&:focus, &:hover
+		{
+			@include deferred
+			{
+				background: none;
+				border-color: transparent;
+				color: $colorBase;
+			}
+		}
+	}
+	&--clear
+	{
+		@include critical
+		{
+			background: none;
+			border-color: $colorWhite;
+			color: $colorWhite;
+		}
+		&:focus, &:hover
+		{
+			@include deferred
+			{
+				background: $colorWhite;
+				border-color: $colorWhite;
+				color: $colorBase;
+			}
+		}
+	}
+	&--line
+	{
+		@include critical
+		{
+			background: none;
+			border-color: $colorPrimary;
+			color: $colorPrimary;
+		}
+		&:focus, &:hover
+		{
+			@include deferred
+			{
+				background: $colorPrimary;
+				border-color: $colorPrimary;
+				color: $colorWhite;
+			}
+		}
+	}
+}
+
+// notices / info
+.form
+{
+	&-notice, &-success, &-error, &-warning
+	{
+		@include critical
+		{
+			background: $colorNotice;
+			border: 2px solid $colorNotice;
+			color: $colorWhite;
+			margin: 0 0 20px 0;
+			padding: 8px 10px;
+		}
+		a
+		{
+			@include critical
+			{
+				color: $colorWhite;
+				text-decoration: underline;
+			}
+			&:focus, &:hover
+			{
+				@include critical
+				{
+					color: $colorWhite;
+					text-decoration: none;
+				}
+			}
+			&:focus
+			{
+				@include critical
+				{
+					outline-color: $colorWhite;
+				}
+			}
+		}
+	}
+	&-success
+	{
+		@include critical
+		{
+			background: $colorSuccess;
+			border-color: $colorSuccess;
+		}
+	}
+	&-error
+	{
+		@include critical
+		{
+			background: $colorError;
+			border-color: $colorError;
+		}
+		.form-row &
+		{
+			@include critical
+			{
+				background: none;
+				border: none;
+				color: $colorError;
+				@include font-size($fontSize - 2);
+				@include line-height($fontHeight - 2);
+				margin: 0;
+				padding: 5px 0 0 0;
+			}			
+		}
+	}
+	&-warning
+	{
+		@include critical
+		{
+			background: $colorWarning;
+			border-color: $colorWarning;
+		}
+	}
+	&-info
+	{
+		@include critical
+		{
+			color: $colorGrey;
+			display: block;
+			@include font-size($fontSize - 2);
+			@include line-height($fontHeight - 2);
+			margin: 0;
+			padding: 5px 0 0 0;
+		}	
 	}
 }

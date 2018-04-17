@@ -49,6 +49,16 @@ body
 			min-width: 960px;
 		}
 	}
+	&.preload
+	{
+		*
+		{
+			@include critical
+			{
+				@include transition(none !important);
+			}			
+		}		
+	}
 }
 
 // plugins
@@ -59,6 +69,7 @@ body
 
 // modules
 @import "modules/grid";
+@import "modules/popups";
 
 // helpers
 @import "helpers";

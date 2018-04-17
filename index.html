@@ -50,26 +50,90 @@
 			<div class="m-grid__inner">
 				<div class="m-grid__row">
 					<div class="m-grid__col m-grid__col--6">
-						Left
+						<h2>Popups</h2>
+						<a class="form-button form-button--success js-popup-launch" href="?" target="_blank">Launch</a>
+						<a class="form-button form-button--warning js-popup-confirm" href="javascript:void(0);" target="_blank">Confirm</a>
+						<a class="form-button form-button--error" href="https://www.youtube.com/watch?v=AkSShuMZyDw" target="_blank">Video</a>
 					</div>
 					<div class="m-grid__col m-grid__col--6">
-						Right
-					</div>
-				</div>
-				<div class="m-grid__row">
-					<div class="m-grid__col m-grid__col--4">
-						Left
-					</div>
-					<div class="m-grid__col m-grid__col--4">
-						Middle
-					</div>
-					<div class="m-grid__col m-grid__col--4">
-						Right
+						<h2>Forms</h2>
+						<p class="form-notice">This is a notice <a href="#">with a link</a>...</p>
+						<p class="form-success">This is a success <a href="#">with a link</a>...</p>
+						<p class="form-error">This is an error <a href="#">with a link</a>...</p>
+						<p class="form-warning">This is a warning <a href="#">with a link</a>...</p>
+						<div class="form-row">
+							<input class="form-text" type="text" placeholder="Enter text..." />
+							<p class="form-info">Help text</p>
+						</div>
+						<div class="form-row">
+							<select class="form-select">
+								<option value="">Enter text...</option>
+								<option>Option number one</option>
+								<option>Option number two</option>
+							</select>
+						</div>
+						<div class="form-row">
+							<input class="form-text" type="text" placeholder="Enter text..." />
+						</div>
+						<div class="form-row">
+							<textarea class="form-textarea" placeholder="Enter text..."></textarea>
+							<p class="form-error">Error text</p>
+						</div>
+						<div class="form-action">
+							<button class="form-button" type="submit">Submit</button>
+							<button class="form-button form-button--text" type="reset">Reset</button>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+
+	<script id="popupLaunchTemplate" type="text/mustache">
+		<div class="m-popup no-print" data-href="{{url}}">
+			<div class="m-popup__inner clearfix">
+				<div class="m-popup__content clearfix">
+					{{{content}}}
+				</div>
+			</div>
+			<a class="m-popup__close js-close" href="javascript:void(0)">Close</a>
+		</div>
+	</script>
+
+	<script id="popupConfirmTemplate" type="text/mustache">
+		<div id="popupConfirm" class="m-popup m-popup--small no-print">
+			<div class="m-popup__inner m-popup--small__inner">
+				<h1 class="m-popup__title m-popup--small__title">{{title}}</h1>
+				<div class="m-popup__content clearfix">
+					<div class="cms">
+						<p>{{{text}}}</p>
+					</div>
+					{{#isNotice}}
+					<ul class="m-popup__actions">
+						<li class="m-popup__actions__item">
+							<a id="popupConfirmYes" class="form-button form-button--inline" href="{{url}}">{{confirm}}</a>
+						</li>
+						<li class="m-popup__actions__item">
+							<a id="popupConfirmNo" class="form-button form-button--text form-button--inline" href="javascript:void(0)">{{cancel}}</a>
+						</li>
+					</ul>
+					{{/isNotice}}
+				</div>
+			</div>
+			<a class="m-popup__close js-close" href="javascript:void(0)">Close</a>
+		</div>
+	</script>
+
+	<script id="popupVideoTemplate" type="text/mustache">
+		<div id="popupVideo" class="m-popup m-popup--video no-print">
+			<div class="m-popup__inner m-popup--video__inner clearfix">
+				<div class="m-popup__video">
+					<iframe src="{{src}}" />
+				</div>
+			</div>
+			<a class="m-popup__close js-close" href="javascript:void(0)">Close</a>
+		</div>
+	</script>
 
 	<script>
 		var load_deferred_css = function () {
