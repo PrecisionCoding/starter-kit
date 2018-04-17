@@ -1,1 +1,200 @@
 ﻿@import "config";
+
+// hide
+.no-print, .hide, .bx-controls, .bx-clone, hr
+{
+	display: none !important;
+}
+
+// bxSlider
+.bx-wrapper, .bx-viewport
+{
+	height: auto !important;
+	width: auto !important;
+}
+
+// reset
+html, body
+{
+	color: $colorBlack;
+	font-family: $fontSimple;
+	@include font-size($fontSize);
+	@include line-height($fontHeight);
+	margin: 0;
+	padding: 0;
+}
+
+// links
+a
+{
+	color: $colorBlack;
+	text-decoration: none;
+}
+
+// headers
+h1, h2, h3, h4, h5, h6
+{
+	@include font-size($fontSize + 6);
+	@include line-height($fontHeight + 6);
+	font-weight: bold;
+	margin: 0;
+	padding: 0 0 10px 0;
+}
+
+h3
+{
+	@include font-size($fontSize + 4);
+	@include line-height($fontHeight + 4);
+}
+
+h4
+{
+	@include font-size($fontSize + 2);
+	@include line-height($fontHeight + 2);
+}
+
+h5
+{
+	@include font-size($fontSize + 1);
+	@include line-height($fontHeight + 1);
+	padding-bottom: 5px;
+}
+
+h6
+{
+	@include font-size($fontSize);
+	@include line-height($fontHeight);
+	padding-bottom: 5px;
+}
+
+// content
+p
+{
+	margin: 0;
+	padding: 0 0 15px 0;
+}
+
+ul, ol
+{
+	margin: 0;
+	padding: 0 0 10px 25px;
+	li
+	{
+		margin: 0;
+		padding: 0 0 5px 0;
+	}
+	ul, ol
+	{
+		margin-bottom: -5px;
+		padding: 5px 0 0 25px;
+	}
+}
+
+ul
+{
+	list-style: disc;
+}
+
+ol
+{
+	ol
+	{
+		list-style: lower-alpha;
+		ol
+		{
+			list-style: lower-roman;
+		}
+	}
+}
+
+dl
+{
+	margin: 0;
+	padding: 0 0 10px 0;
+	dt
+	{
+		font-weight: bold;
+		margin: 0;
+		padding: 0 0 5px 0;
+	}
+	dd
+	{
+		margin: 0;
+		padding: 0 0 5px 0;
+	}
+}
+
+picture, img
+{
+	display: block;
+	height: auto;
+	margin: 0 auto 15px auto;
+	padding: 0;
+	width: auto;
+	max-width: 100%;
+	p &
+	{
+		margin-bottom: 0;
+	}
+}
+
+table
+{
+	border: 0;
+	border-collapse: collapse;
+	font-size: $fontSize - 1;
+	line-height: $fontHeight - 1;
+	margin: 0 0 15px 0;
+	padding: 0;
+	width: 100%;
+	th, td
+	{
+		margin: 0;
+		padding: 5px;
+	}
+	tbody
+	{
+		th, td
+		{
+			border-top: 1px solid $colorDivider;
+		}
+	}
+}
+
+// print grid
+.print-grid
+{
+	font-size: 0;
+	line-height: 0;
+	margin: -10px 0 0 -10px;
+	padding: 0 0 15px 0;
+	&__col
+	{
+		@include box-sizing();
+		display: inline-block;
+		@include font-size($fontSize);
+		@include line-height($fontHeight);
+		margin: 0;
+		padding: 10px 0 15px 10px;
+		vertical-align: top;
+		width: 100%;
+		&--2
+		{
+			width: 50%;
+		}
+		&--3
+		{
+			width: 33.3333%;
+		}
+		&--4
+		{
+			width: 25%;
+		}
+		&--5
+		{
+			width: 20%;
+		}
+	}
+}
+
+@import "fixes";
