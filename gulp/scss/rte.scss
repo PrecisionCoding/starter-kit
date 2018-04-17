@@ -1,0 +1,33 @@
+﻿@import "config";
+
+html, body
+{
+	margin: 0;
+	padding: 0;
+}
+
+body.mce-content-body
+{
+	color: $colorBase;
+	font-family: $fontBase;
+	@include font-size($fontSize);
+	@include line-height($fontHeight);
+	margin: 0;
+	padding: 10px;
+	h2, h3, h4, h5, h6
+	{
+		font-weight: 600;
+		margin: 0;
+		padding: 0 0 10px 0;
+	}
+	a
+	{
+		color: $colorLink;
+		text-decoration: underline;
+	}
+	p
+	{
+		margin: 0;
+		padding: 0 0 15px 0;
+	}
+}

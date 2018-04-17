@@ -10,7 +10,23 @@
 	setup: {
 
 		init: function () {
+			siteDeferred.setup.cms();
 			siteDeferred.setup.smoothScroll();
+		},
+
+		cms: function () {
+			$('.cms:not(.js-cms-done)').each(function () {
+				var wrapper = $(this);
+
+				// tables
+				wrapper.find('table:not(.js-cms-table-done)').wrap('<div class="cms-table" />');
+
+				// images
+				wrapper.find('img:not(.js-cms-image-done)').removeAttr('style width height');
+
+				// done
+				wrapper.addClass('js-cms-done');
+			});
 		},
 
 		smoothScroll: function () {
@@ -42,6 +58,46 @@
 			};
 
 			site.smoothScroll();
+
+		},
+
+		analytics: function () {
+
+			site.analytics = {
+
+				init: function () {
+					$('a[data-analytics-event]:not(.js-analytics-done)').each(function () {
+						var link = $(this);
+						var e = link.attr('data-analytics-event').split('|');
+						// click
+						link.on('click', function () {
+							site.analytics.track(e[0], e[1], e[2]);
+						});
+						// done
+						link.addClass('js-analytics-done');
+					});
+				},
+
+				page: function (url, title) {
+					dataLayer.push({
+						'virtualPageUrl': url,
+						'virtualPageTitle': title,
+						'event': 'VirtualPageView'
+					});
+				},
+
+				track: function (category, action, label) {
+					dataLayer.push({
+						'eventCategory': category,
+						'eventAction': action,
+						'eventLabel': label,
+						'event': 'EventTracking'
+					});
+				}
+
+			};
+
+			site.analytics.init();
 
 		}
 

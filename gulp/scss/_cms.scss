@@ -2,7 +2,346 @@
 
 .cms
 {
-	@include critical
+	h1, h2, h3, h4, h5, h6
 	{
+		@include critical
+		{
+			font-weight: 600;
+			padding-bottom: 10px;
+		}
+	}
+	h2
+	{
+		@include font-size($fontSize + 6);
+		@include line-height($fontHeight + 6);
+	}
+	h3
+	{
+		@include font-size($fontSize + 4);
+		@include line-height($fontHeight + 4);
+	}
+	h4
+	{
+		@include font-size($fontSize + 2);
+		@include line-height($fontHeight + 2);
+	}
+	h5
+	{
+		@include font-size($fontSize + 1);
+		@include line-height($fontHeight + 1);
+		padding-bottom: 5px;
+	}
+	h6
+	{
+		@include font-size($fontSize);
+		@include line-height($fontHeight);
+		padding-bottom: 5px;
+	}
+	a
+	{
+		@include critical
+		{
+			font-weight: 600;
+		}
+	}
+	ul, ol
+	{
+		@include critical
+		{
+			padding-bottom: 10px;
+			padding-left: 30px;
+		}
+		> li
+		{
+			@include critical
+			{
+				padding-bottom: 10px;
+				position: relative;
+			}
+		}
+	}
+	ul
+	{
+		> li
+		{
+			&:before
+			{
+				@include critical
+				{
+					background: $colorPrimary;
+					@include border-radius(100%);
+					content: "";
+					display: block;
+					height: 7px;
+					left: -15px;
+					margin: 0;
+					padding: 0;
+					position: absolute;
+					top: 8px;
+					width: 7px;
+					z-index: 1;
+				}
+			}
+			
+		}
+	}
+	ol
+	{
+		@include critical
+		{
+			counter-reset: cms-ol;
+		}
+		> li
+		{
+			@include critical
+			{
+				counter-increment: cms-ol;
+			}
+			&:before
+			{
+				@include critical
+				{
+					color: $colorPrimary;
+					content: counter(cms-ol)".";
+					display: block;
+					font-weight: 600;
+					left: -30px;
+					margin: 0;
+					padding: 0;
+					position: absolute;
+					text-align: right;
+					top: 0;
+					width: 25px;
+					z-index: 1;
+				}
+			}
+			
+		}
+	}
+	picture, img
+	{
+		@include critical
+		{
+			margin: 0 auto 15px auto;
+			padding: 0;
+		}		
+	}
+	figure, p
+	{
+		picture, img
+		{
+			@include critical
+			{
+				margin-bottom: 0;
+			}			
+		}
+	}
+	iframe
+	{
+		@include critical
+		{
+			display: block;
+			margin: 0 0 15px 0;
+			padding: 0;
+		}		
+	}
+	blockquote
+	{
+		@include critical
+		{
+			border-left: 5px solid $colorPrimary;
+			color: $colorPrimary;
+			@include font-size($fontSize + 2);
+			@include line-height($fontHeight + 2);
+			margin: 0 0 20px 0;
+			padding: 10px 0 10px 15px;
+			text-align: left;
+		}
+		p 
+		{
+			&:not(:last-child)
+			{
+				@include critical
+				{
+					padding-bottom: 10px;
+				}
+			}
+		}
+		a
+		{
+			@include critical
+			{
+				text-decoration: underline;
+			}
+			&:focus, &:hover
+			{
+				color: inherit;
+				@include critical
+				{
+					text-decoration: none;
+				}
+			}
+		}
+		.quote-author
+		{
+			@include critical
+			{
+				color: $colorGrey;
+				display: block;
+				@include font-size($fontSize - 2);
+				@include line-height($fontHeight - 2);
+				padding: 5px 0 0 20px;
+			}
+			@include deferred
+			{
+				position: relative;
+				z-index: 1;
+			}
+			&:before
+			{
+				@include deferred
+				{
+					border-top: 1px solid $colorGreyLight;
+					content: "";
+					left: 0;
+					position: absolute;
+					top: 15px;
+					width: 10px;
+					z-index: 1;
+				}
+			}
+		}
+	}
+	hr
+	{
+		@include critical
+		{
+			background: none;
+			border: 0;
+			height: 26px;
+			margin: 0;
+			overflow: hidden;
+			padding: 0;
+			position: relative;
+			visibility: hidden;
+			z-index: 1;
+		}
+		&:before
+		{
+			@include critical
+			{
+				border-top: 1px solid $colorDivider;
+				content: "";
+				display: block;
+				left: 0;
+				position: absolute;
+				right: 0;
+				top: 5px;
+				visibility: visible;
+				z-index: 1;
+			}			
+		}
+	}
+	table
+	{
+		@include critical
+		{
+			border-bottom: 1px solid $colorDivider;
+			margin: 0 0 15px 0;
+			padding: 0;
+		}
+		th, td
+		{
+			@include critical
+			{
+				margin: 0;
+				padding: 8px 10px;
+				text-align: left;
+				vertical-align: top;
+			}
+		}
+		thead
+		{
+			th, td
+			{
+				@include critical
+				{
+					color: $colorGrey;
+					@include font-size($fontSize - 4);
+					@include line-height($fontHeight - 4);
+					text-transform: uppercase;
+				}
+			}
+		}
+		tbody, tfoot
+		{
+			tr
+			{
+				th, td
+				{
+					@include critical
+					{
+						border-top: 1px solid $colorDivider;
+						@include font-size($fontSize - 2);
+						@include line-height($fontHeight - 2);
+						@include mq-min($bpDesktop)
+						{
+							@include font-size($fontSize - 1);
+							@include line-height($fontHeight - 1);
+						}
+					}
+				}
+			}
+		}
+		tbody
+		{
+			tr
+			{
+				&:nth-child(odd)
+				{
+					th, td
+					{
+						@include critical
+						{
+							background: rgba($colorBlack, .02);
+						}
+					}
+				}
+			}
+		}
+	}
+	&-table
+	{
+		@include deferred
+		{
+			margin: 0 0 15px 0;
+			overflow-x: auto;
+			padding: 0 0 10px 0;
+			-webkit-overflow-scrolling: touch;
+			@include mq-min($bpDesktop)
+			{
+				margin: 0;
+				overflow-x: visible;
+				padding: 0;
+			}
+		}
+		table
+		{
+			@include deferred
+			{
+				@include mq-max($bpTablet - 1)
+				{
+					margin: 0;
+					min-width: $bpMobileLarge;
+				}
+			}
+		}
+	}
+	&:not(.cms--no-restrict)
+	{
+		@include critical
+		{
+			max-width: $maxContentWidth;
+		}
 	}
 }
