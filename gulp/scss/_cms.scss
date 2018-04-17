@@ -273,36 +273,6 @@
 			}
 		}
 	}
-	hr
-	{
-		@include critical
-		{
-			background: none;
-			border: 0;
-			height: 26px;
-			margin: 0;
-			overflow: hidden;
-			padding: 0;
-			position: relative;
-			visibility: hidden;
-			z-index: 1;
-		}
-		&:before
-		{
-			@include critical
-			{
-				border-top: 1px solid $colorDivider;
-				content: "";
-				display: block;
-				left: 0;
-				position: absolute;
-				right: 0;
-				top: 5px;
-				visibility: visible;
-				z-index: 1;
-			}			
-		}
-	}
 	table
 	{
 		@include critical
