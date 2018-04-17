@@ -14,20 +14,237 @@ body.mce-content-body
 	@include line-height($fontHeight);
 	margin: 0;
 	padding: 10px;
-	h2, h3, h4, h5, h6
+	h1, h2, h3, h4, h5, h6
 	{
+		@include font-size($fontSize + 6);
+		@include line-height($fontHeight + 6);
 		font-weight: 600;
 		margin: 0;
 		padding: 0 0 10px 0;
 	}
+	h3
+	{
+		@include font-size($fontSize + 4);
+		@include line-height($fontHeight + 4);
+	}
+	h4
+	{
+		@include font-size($fontSize + 2);
+		@include line-height($fontHeight + 2);
+	}
+	h5
+	{
+		@include font-size($fontSize + 1);
+		@include line-height($fontHeight + 1);
+		padding-bottom: 5px;
+	}
+	h6
+	{
+		@include font-size($fontSize);
+		@include line-height($fontHeight);
+		padding-bottom: 5px;
+	}
 	a
 	{
 		color: $colorLink;
+		font-weight: 600;
 		text-decoration: underline;
 	}
 	p
 	{
 		margin: 0;
 		padding: 0 0 15px 0;
+	}
+	ul, ol
+	{
+		margin: 0;
+		padding: 0 0 10px 30px;
+		> li
+		{
+			margin: 0;
+			padding: 0 0 10px 0;
+		}
+	}
+	ul
+	{
+		> li
+		{
+			list-style: disc;
+		}
+	}
+	ol
+	{
+		> li
+		{
+			list-style: decimal;
+		}
+	}
+	picture, img
+	{
+		margin: 0 auto 15px auto;
+		padding: 0;
+	}
+	figure, p
+	{
+		picture, img
+		{
+			margin-bottom: 0;
+		}
+	}	
+	figure
+	{
+		color: $colorGreyDark;
+		display: inline-block;
+		@include font-size($fontSize - 3);
+		font-style: italic;
+		@include line-height($fontHeight - 3);
+		margin: 0 auto;
+		padding: 0 0 15px 0;
+		figcaption
+		{
+			background: $colorOffWhite;
+			display: block;
+			margin: 0;
+			padding: 8px 10px;
+			position: relative;
+			z-index: 1;
+		}
+	}
+	iframe
+	{
+		display: inline-block;
+		margin: 0 0 15px 0;
+		padding: 0;
+		max-width: 100%;
+	}
+	blockquote
+	{
+		border-left: 5px solid $colorPrimary;
+		color: $colorPrimary;
+		@include font-size($fontSize + 2);
+		@include line-height($fontHeight + 2);
+		margin: 0 10px 20px 10px;
+		padding: 10px 0 10px 15px;
+		text-align: left;
+		@include mq-min($bpDesktop)
+		{
+			margin: 0 20px 20px 20px;
+		}
+		p 
+		{
+			&:not(:last-child)
+			{
+				padding-bottom: 10px;
+			}
+		}
+		a
+		{
+			text-decoration: underline;
+			&:focus, &:hover
+			{
+				color: inherit;
+				text-decoration: none;
+			}
+		}
+		.quote-author
+		{
+			color: $colorGrey;
+			display: block;
+			@include font-size($fontSize - 2);
+			@include line-height($fontHeight - 2);
+			padding: 5px 0 0 20px;
+			position: relative;
+			z-index: 1;
+			&:before
+			{
+				border-top: 1px solid $colorGreyLight;
+				content: "";
+				left: 0;
+				position: absolute;
+				top: 15px;
+				width: 10px;
+				z-index: 1;
+			}
+		}
+	}
+	table
+	{
+		border-bottom: 1px solid $colorDivider;
+		margin: 0 0 15px 0;
+		padding: 0;
+		th, td
+		{
+			margin: 0;
+			padding: 8px 10px;
+			text-align: left;
+			vertical-align: top;
+		}
+		thead
+		{
+			th, td
+			{
+				color: $colorGrey;
+				@include font-size($fontSize - 4);
+				@include line-height($fontHeight - 4);
+				text-transform: uppercase;
+			}
+		}
+		tbody, tfoot
+		{
+			tr
+			{
+				th, td
+				{
+					border-top: 1px solid $colorDivider;
+					@include font-size($fontSize - 2);
+					@include line-height($fontHeight - 2);
+					@include mq-min($bpDesktop)
+					{
+						@include font-size($fontSize - 1);
+						@include line-height($fontHeight - 1);
+					}
+				}
+			}
+		}
+		tbody
+		{
+			tr
+			{
+				&:nth-child(odd)
+				{
+					th, td
+					{
+						background: rgba($colorBlack, .02);
+					}
+				}
+			}
+		}
+	}
+	.button
+	{
+		&:not(a)
+		{
+			display: block;
+		}
+	}
+	a.button, .button a, a .button
+	{
+		background: $colorPrimary;
+		border: 2px solid $colorPrimary;
+		@include border-radius(0);
+		color: $colorWhite;
+		cursor: pointer;
+		display: inline-block;
+		@include font-size($fontSize);
+		font-weight: 600;
+		@include line-height($fontHeight);
+		margin: 0;
+		padding: 8px 15px;
+		text-align: center;
+		text-decoration: none;
+		@include user-select();
+		vertical-align: middle;
+		white-space: nowrap;
+		min-width: 100px;
 	}
 }

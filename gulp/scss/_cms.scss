@@ -17,30 +17,45 @@
 	}
 	h2
 	{
-		@include font-size($fontSize + 6);
-		@include line-height($fontHeight + 6);
+		@include critical
+		{
+			@include font-size($fontSize + 6);
+			@include line-height($fontHeight + 6);
+		}
 	}
 	h3
 	{
-		@include font-size($fontSize + 4);
-		@include line-height($fontHeight + 4);
+		@include critical
+		{
+			@include font-size($fontSize + 4);
+			@include line-height($fontHeight + 4);
+		}
 	}
 	h4
 	{
-		@include font-size($fontSize + 2);
-		@include line-height($fontHeight + 2);
+		@include critical
+		{
+			@include font-size($fontSize + 2);
+			@include line-height($fontHeight + 2);
+		}
 	}
 	h5
 	{
-		@include font-size($fontSize + 1);
-		@include line-height($fontHeight + 1);
-		padding-bottom: 5px;
+		@include critical
+		{
+			@include font-size($fontSize + 1);
+			@include line-height($fontHeight + 1);
+			padding-bottom: 5px;
+		}
 	}
 	h6
 	{
-		@include font-size($fontSize);
-		@include line-height($fontHeight);
-		padding-bottom: 5px;
+		@include critical
+		{
+			@include font-size($fontSize);
+			@include line-height($fontHeight);
+			padding-bottom: 5px;
+		}
 	}
 	a
 	{
@@ -365,6 +380,85 @@
 					margin: 0;
 					min-width: $bpMobileLarge;
 				}
+			}
+		}
+	}
+	&-video
+	{
+		@include critical
+		{
+			background: $colorBlack;
+			height: 0;
+			margin: 0 auto 15px auto;
+			overflow: hidden;
+			padding: 56.25% 0 0 0;
+			position: relative;
+			z-index: 1;
+		}
+		iframe
+		{
+			@include critical
+			{
+				display: block;
+				height: 100%;
+				left: 0;
+				margin: 0;
+				padding: 0;
+				position: absolute;
+				top: 0;
+				width: 100%;
+				z-index: 1;
+			}			
+		}
+	}
+	.button
+	{
+		&:not(a)
+		{
+			@include critical
+			{
+				display: block;
+			}			
+		}
+	}
+	a.button, .button a, a .button
+	{
+		@include critical
+		{
+			background: $colorPrimary;
+			border: 2px solid $colorPrimary;
+			@include border-radius(0);
+			color: $colorWhite;
+			cursor: pointer;
+			display: inline-block;
+			@include font-size($fontSize);
+			font-weight: 600;
+			@include line-height($fontHeight);
+			margin: 0;
+			padding: 8px 15px;
+			text-align: center;
+			text-decoration: none;
+			@include transition(all .2s);
+			@include user-select();
+			vertical-align: middle;
+			white-space: nowrap;
+			min-width: 100px;
+		}
+		&:focus, &:hover
+		{
+			@include deferred
+			{
+				background: $colorBase;
+				border-color: $colorBase;
+				color: $colorWhite;
+				text-decoration: none;
+			}
+		}
+		&:focus
+		{
+			@include deferred
+			{
+				outline: 1px dotted $colorBase;
 			}
 		}
 	}

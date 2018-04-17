@@ -195,7 +195,7 @@ b, strong
 {
 	@include critical
 	{
-		font-weight: 600;
+		font-weight: 700;
 	}
 }
 
@@ -203,6 +203,7 @@ i, em
 {
 	@include critical
 	{
+		color: $colorBlack;
 		font-style: italic;
 	}
 }
