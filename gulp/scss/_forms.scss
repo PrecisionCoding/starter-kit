@@ -350,8 +350,8 @@ $maxFormWidth: $maxContentWidth;
 	{
 		@include deferred
 		{
-			background: $colorBase;
-			border-color: $colorBase;
+			background: darken($colorPrimary, 15%);
+			border-color: darken($colorPrimary, 15%);
 			color: $colorWhite;
 			text-decoration: none;
 		}
@@ -391,6 +391,15 @@ $maxFormWidth: $maxContentWidth;
 			border-color: $colorSuccess;
 			color: $colorWhite;
 		}
+		&:focus, &:hover
+		{
+			@include deferred
+			{
+				background: darken($colorSuccess, 15%);
+				border-color: darken($colorSuccess, 15%);
+				color: $colorWhite;
+			}
+		}
 	}
 	&--error
 	{
@@ -400,6 +409,15 @@ $maxFormWidth: $maxContentWidth;
 			border-color: $colorError;
 			color: $colorWhite;
 		}
+		&:focus, &:hover
+		{
+			@include deferred
+			{
+				background: darken($colorError, 15%);
+				border-color: darken($colorError, 15%);
+				color: $colorWhite;
+			}
+		}
 	}
 	&--warning
 	{
@@ -408,6 +426,15 @@ $maxFormWidth: $maxContentWidth;
 			background: $colorWarning;
 			border-color: $colorWarning;
 			color: $colorWhite;
+		}
+		&:focus, &:hover
+		{
+			@include deferred
+			{
+				background: darken($colorWarning, 15%);
+				border-color: darken($colorWarning, 15%);
+				color: $colorWhite;
+			}
 		}
 	}
 	&--base
@@ -508,6 +535,208 @@ $maxFormWidth: $maxContentWidth;
 			{
 				background: none !important;
 			}			
+		}
+	}
+	&--social
+	{
+		@include critical
+		{
+			height: 40px;
+			padding: 0;
+			min-width: 40px;
+		}
+		svg
+		{
+			@include critical
+			{
+				display: block;
+				fill: $colorWhite;
+				height: 36px;
+				width: 36px;
+			}
+			&:not(:root)
+			{
+				@include critical
+				{
+					overflow: hidden;
+				}
+			}
+		}
+	}
+	&--facebook
+	{
+		@include critical
+		{
+			background: $colorSocialFacebook;
+			border-color: $colorSocialFacebook;
+		}
+		&:focus, &:hover
+		{
+			@include deferred
+			{
+				background: darken($colorSocialFacebook, 15%);
+				border-color: darken($colorSocialFacebook, 15%);
+			}
+		}
+	}
+	&--twitter
+	{
+		@include critical
+		{
+			background: $colorSocialTwitter;
+			border-color: $colorSocialTwitter;
+		}
+		&:focus, &:hover
+		{
+			@include deferred
+			{
+				background: darken($colorSocialTwitter, 15%);
+				border-color: darken($colorSocialTwitter, 15%);
+			}
+		}
+	}
+	&--google-plus
+	{
+		@include critical
+		{
+			background: $colorSocialGooglePlus;
+			border-color: $colorSocialGooglePlus;
+		}
+		&:focus, &:hover
+		{
+			@include deferred
+			{
+				background: darken($colorSocialGooglePlus, 15%);
+				border-color: darken($colorSocialGooglePlus, 15%);
+			}
+		}
+	}
+	&--linked-in
+	{
+		@include critical
+		{
+			background: $colorSocialLinkedIn;
+			border-color: $colorSocialLinkedIn;
+		}
+		&:focus, &:hover
+		{
+			@include deferred
+			{
+				background: darken($colorSocialLinkedIn, 15%);
+				border-color: darken($colorSocialLinkedIn, 15%);
+			}
+		}
+	}
+	&--you-tube
+	{
+		@include critical
+		{
+			background: $colorSocialYouTube;
+			border-color: $colorSocialYouTube;
+		}
+		&:focus, &:hover
+		{
+			@include deferred
+			{
+				background: darken($colorSocialYouTube, 15%);
+				border-color: darken($colorSocialYouTube, 15%);
+			}
+		}
+	}
+	&--instagram
+	{
+		@include critical
+		{
+			background: $colorSocialInstagram;
+			border-color: $colorSocialInstagram;
+		}
+		&:focus, &:hover
+		{
+			@include deferred
+			{
+				background: darken($colorSocialInstagram, 15%);
+				border-color: darken($colorSocialInstagram, 15%);
+			}
+		}
+	}
+	&--pinterest
+	{
+		@include critical
+		{
+			background: $colorSocialPinterest;
+			border-color: $colorSocialPinterest;
+		}
+		&:focus, &:hover
+		{
+			@include deferred
+			{
+				background: darken($colorSocialPinterest, 15%);
+				border-color: darken($colorSocialPinterest, 15%);
+			}
+		}
+	}
+	&--vimeo
+	{
+		@include critical
+		{
+			background: $colorSocialVimeo;
+			border-color: $colorSocialVimeo;
+		}
+		&:focus, &:hover
+		{
+			@include deferred
+			{
+				background: darken($colorSocialVimeo, 15%);
+				border-color: darken($colorSocialVimeo, 15%);
+			}
+		}
+	}
+	&--flickr
+	{
+		@include critical
+		{
+			background: $colorSocialFlickr;
+			border-color: $colorSocialFlickr;
+		}
+		&:focus, &:hover
+		{
+			@include deferred
+			{
+				background: darken($colorSocialFlickr, 15%);
+				border-color: darken($colorSocialFlickr, 15%);
+			}
+		}
+	}
+	&--rss
+	{
+		@include critical
+		{
+			background: $colorSocialRss;
+			border-color: $colorSocialRss;
+		}
+		&:focus, &:hover
+		{
+			@include deferred
+			{
+				background: darken($colorSocialRss, 15%);
+				border-color: darken($colorSocialRss, 15%);
+			}
+		}
+	}
+	&--email
+	{
+		@include critical
+		{
+			background: $colorGreyDark;
+			border-color: $colorGreyDark;
+		}
+		&:focus, &:hover
+		{
+			@include deferred
+			{
+				background: darken($colorGreyDark, 15%);
+				border-color: darken($colorGreyDark, 15%);
+			}
 		}
 	}
 }
