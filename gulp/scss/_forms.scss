@@ -1,6 +1,6 @@
 ﻿@import "config";
 
-$maxFormWidth: 600px;
+$maxFormWidth: $maxContentWidth;
 
 // rows
 .form-row, .form-action
@@ -11,6 +11,7 @@ $maxFormWidth: 600px;
 		line-height: 0;
 		margin: 0;
 		padding: 0 0 20px 0;
+		max-width: $maxFormWidth;
 	}
 	> *
 	{
@@ -72,7 +73,7 @@ $maxFormWidth: 600px;
 		margin: 0;
 		padding: 8px 10px;
 		@include placeholder-text($colorGreyDark);
-		@include transition(all .3s);
+		@include transition(border .3s);
 		vertical-align: middle;
 		width: 100%;
 		max-width: $maxFormWidth;
@@ -135,26 +136,33 @@ $maxFormWidth: 600px;
 	{
 		@include critical
 		{
-			width: 30%;
-			width: calc(33.3333% - 10px);
-			max-width: 193px;
+			@include mq-min($bpTablet)
+			{
+				width: 30%;
+				width: calc(33.3333% - 10px);
+			}			
 		}
 	}
 	&--medium
 	{
 		@include critical
 		{
-			width: 45%;
-			width: calc(50% - 10px);
-			max-width: 295px;
+			@include mq-min($bpTablet)
+			{
+				width: 45%;
+				width: calc(50% - 10px);
+			}
 		}
 	}
 	&--large
 	{
 		@include critical
 		{
-			width: 75%;
-			max-width: 396px;
+			@include mq-min($bpTablet)
+			{
+				width: 62%;
+				width: calc(66.6666% - 10px);
+			}
 		}
 	}
 	&--no-border
@@ -176,13 +184,50 @@ $maxFormWidth: 600px;
 
 .form-textarea
 {
-	height: 200px;
-	resize: vertical;
+	@include critical
+	{
+		min-height: 100px;
+		height: 150px;
+		resize: vertical;
+		@include mq-min($bpDesktop)
+		{
+			height: 250px;
+		}
+	}	
 }
 
 .form-select
 {
-	padding: 9px 6px 10px 6px;
+	@include critical
+	{
+		padding: 9px 6px 10px 6px;
+	}
+}
+
+// input group
+.form-input-group
+{
+	@include critical
+	{
+		font-size: 0;
+		line-height: 0;
+		margin: 0 0 -10px 0;
+		@include mq-min($bpTablet)
+		{
+			margin-left: -10px;
+		}		
+	}
+	.form-text, .form-textarea, .form-select
+	{
+		@include critical
+		{
+			margin: 0 0 10px 0;
+			@include mq-min($bpTablet)
+			{
+				margin-left: 10px;
+			}			
+		}
+	}
 }
 
 // upload

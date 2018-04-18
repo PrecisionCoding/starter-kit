@@ -1,6 +1,24 @@
 ﻿<!DOCTYPE html>
 <html class="no-js" lang="en" itemscope itemtype="http://schema.org/WebPage">
 <head>
+	<script>
+		dataLayer = [];
+	</script>
+	<!--@RenderSection("TagManagerScripts", false)-->
+	<!-- Google Tag Manager -->
+	<!--<script>
+		(function (w, d, s, l, i) {
+			w[l] = w[l] || []; w[l].push({
+				'gtm.start': new Date().getTime(),
+				event: 'gtm.js'
+			});
+			var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+			j.async = true;
+			j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+			f.parentNode.insertBefore(j, f);
+		})(window, document, 'script', 'dataLayer', 'XXXXXXXX');
+	</script>-->
+	<!-- End Google Tag Manager -->
 	<meta charset="utf-8" />
 	<title>Starter Kit</title>
 
@@ -10,15 +28,12 @@
 
 	<meta itemprop="name" content="" />
 	<meta itemprop="description" content="" />
-	<meta itemprop="image" content="" />
 	<meta itemprop="url" content="" />
 
 	<meta property="og:site_name" content="" />
 	<meta property="og:title" content="" />
 	<meta property="og:description" content="" />
 	<meta property="og:type" content="website" />
-	<meta property="og:image" content="" />
-	<meta property="og:image" content="" />
 	<meta property="og:url" content="" />
 	<meta property="og:locale" content="en_GB" />
 
@@ -27,15 +42,26 @@
 	<meta name="twitter:creator" content="@karltynan" />
 	<meta name="twitter:title" content="" />
 	<meta name="twitter:description" content="" />
+
+	<!--@RenderSection("Meta", false)-->
+
+	<meta itemprop="image" content="" />
+	<meta property="og:image" content="" />
 	<meta name="twitter:image" content="" />
 
 	<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
+	<!--@RenderSection("CSSPlugins", false)-->
+
+	<link href="//fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet" />
+
 	<link href="css/site-critical.css?v=1" rel="stylesheet" media="screen" />
+
 	<noscript id="deferred-styles">
 		<link href="css/site-deferred.css?v=1" rel="stylesheet" media="screen" />
 		<link href="css/print.css?v=1" rel="stylesheet" media="print" />
+		<!--@RenderSection("DeferredCSS", false)-->
 	</noscript>
 
 	<link href="favicon.png" rel="icon" type="image/x-icon" />
@@ -57,7 +83,7 @@
 					<div class="m-grid__col">
 						<div class="cms">
 							<h2>Header 2</h2>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, <strong>some bold text</strong> sed do <em>some italic text</em> incididunt ut labore et <abbr title="Help me!">some help text</abbr> aliqua. Ut enim ad minim veniam, <a href="#">quis nostrud exercitation</a> ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, <strong>some bold text</strong> sed do <em>some italic text</em> incididunt ut labore et aliqua. Ut enim ad minim veniam, <a href="#">quis nostrud exercitation</a> ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 						</div>
 					</div>
 
@@ -207,64 +233,66 @@
 		</div>
 		<div class="form-row">
 			<label>Date of birth</label>
-			<select class="form-select form-select--small">
-				<option value="">Day...</option>
-				<option>1</option>
-				<option>2</option>
-				<option>3</option>
-				<option>4</option>
-				<option>5</option>
-				<option>6</option>
-				<option>7</option>
-				<option>8</option>
-				<option>9</option>
-				<option>10</option>
-				<option>11</option>
-				<option>12</option>
-				<option>13</option>
-				<option>14</option>
-				<option>15</option>
-				<option>16</option>
-				<option>17</option>
-				<option>18</option>
-				<option>19</option>
-				<option>20</option>
-				<option>21</option>
-				<option>22</option>
-				<option>23</option>
-				<option>24</option>
-				<option>25</option>
-				<option>26</option>
-				<option>27</option>
-				<option>28</option>
-				<option>29</option>
-				<option>30</option>
-				<option>31</option>
-			</select>
-			<select class="form-select form-select--small">
-				<option value="">Month...</option>
-				<option>January</option>
-				<option>February</option>
-				<option>March</option>
-				<option>April</option>
-				<option>May</option>
-				<option>June</option>
-				<option>July</option>
-				<option>August</option>
-				<option>September</option>
-				<option>October</option>
-				<option>November</option>
-				<option>December</option>
-			</select>
-			<select class="form-select form-select--small">
-				<option value="">Year...</option>
-				<option>1990</option>
-				<option>1989</option>
-				<option>1988</option>
-				<option>1987</option>
-				<option>1986</option>
-				<option>1985</option>
-			</select>
+			<div class="form-input-group">
+				<select class="form-select form-select--small">
+					<option value="">Day...</option>
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+					<option>6</option>
+					<option>7</option>
+					<option>8</option>
+					<option>9</option>
+					<option>10</option>
+					<option>11</option>
+					<option>12</option>
+					<option>13</option>
+					<option>14</option>
+					<option>15</option>
+					<option>16</option>
+					<option>17</option>
+					<option>18</option>
+					<option>19</option>
+					<option>20</option>
+					<option>21</option>
+					<option>22</option>
+					<option>23</option>
+					<option>24</option>
+					<option>25</option>
+					<option>26</option>
+					<option>27</option>
+					<option>28</option>
+					<option>29</option>
+					<option>30</option>
+					<option>31</option>
+				</select>
+				<select class="form-select form-select--small">
+					<option value="">Month...</option>
+					<option>January</option>
+					<option>February</option>
+					<option>March</option>
+					<option>April</option>
+					<option>May</option>
+					<option>June</option>
+					<option>July</option>
+					<option>August</option>
+					<option>September</option>
+					<option>October</option>
+					<option>November</option>
+					<option>December</option>
+				</select>
+				<select class="form-select form-select--small">
+					<option value="">Year...</option>
+					<option>1990</option>
+					<option>1989</option>
+					<option>1988</option>
+					<option>1987</option>
+					<option>1986</option>
+					<option>1985</option>
+				</select>
+			</div>
 		</div>
 		<div class="form-row">
 			<label>Reference</label>
@@ -296,9 +324,14 @@
 
 		<h2>Popups</h2>
 		<div class="form-action">
-			<a class="form-button form-button--success js-popup-launch" href="?" target="_blank">Launch</a>
+			<a class="form-button form-button--success js-popup-launch" href="popup.html" target="_blank">Launch</a>
 			<a class="form-button form-button--warning js-popup-confirm" href="javascript:void(0);" target="_blank">Confirm</a>
 			<a class="form-button form-button--error" href="https://www.youtube.com/watch?v=AkSShuMZyDw" target="_blank">Video</a>
+		</div>
+
+		<h2>Social</h2>
+		<div class="form-action">
+
 		</div>
 
 	</div>
@@ -349,6 +382,8 @@
 		</div>
 	</script>
 
+	<!--@RenderSection("JSPlugins", false)-->
+
 	<script>
 		var load_deferred_css = function () {
 			var e = document.getElementById('deferred-styles');
@@ -369,6 +404,8 @@
 	</script>
 
 	<script src="js/critical.js?v=1"></script>
+
+	<!--@RenderSection("JS", false)-->
 
 	<script>
 		function load_deferred_javascript() {

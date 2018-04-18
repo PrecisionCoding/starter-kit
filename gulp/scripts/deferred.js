@@ -12,6 +12,7 @@
 		init: function () {
 			siteDeferred.setup.cms();
 			siteDeferred.setup.smoothScroll();
+			siteDeferred.setup.analytics();
 		},
 
 		cms: function () {

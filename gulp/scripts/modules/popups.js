@@ -139,6 +139,7 @@
 			location.href = url;
 			return;
 		}
+
 		// parse template
 		template = Hogan.compile(template);
 
@@ -156,14 +157,14 @@
 			url: url,
 			cache: false,
 			success: function (response) {
-				var content = $(response).find('#popupContentWrapper').html();
-				if (typeof content === 'undefined') {
+				var content = $(response).find('#popupContentWrapper');
+				if (!content.length) {
 					location.href = url;
 					return;
 				}
 				// render template
 				var rendered = template.render({
-					content: content,
+					content: content.html(),
 					url: url
 				});
 				// add template to body
