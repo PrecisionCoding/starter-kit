@@ -323,17 +323,25 @@
 			</li>
 		</ul>
 		<div class="form-action">
-			<button class="form-button" type="submit">Submit</button>
+			<button class="form-button" type="submit">Default</button>
 			<button class="form-button" disabled>Disabled</button>
+		</div>
+		<div class="form-action">
+			<button class="form-button" type="submit">Default</button>
+			<button class="form-button form-button--success" type="submit">Success</button>
+			<button class="form-button form-button--warning" type="submit">Warning</button>
+			<button class="form-button form-button--error" type="submit">Error</button>
+			<button class="form-button form-button--line" type="submit">Line</button>
+			<button class="form-button form-button--text">Text</button>
 		</div>
 
 		<hr />
 
 		<h2>Popups</h2>
 		<div class="form-action">
-			<a class="form-button form-button--success js-popup-launch" href="popup.html" target="_blank">Launch</a>
-			<a class="form-button form-button--warning js-popup-confirm" href="javascript:void(0);" target="_blank">Confirm</a>
-			<a class="form-button form-button--error" href="https://www.youtube.com/watch?v=AkSShuMZyDw" target="_blank">Video</a>
+			<a class="form-button js-popup-launch" href="popup.html" target="_blank">Launch</a>
+			<a class="form-button js-popup-confirm" href="javascript:void(0);" target="_blank">Confirm</a>
+			<a class="form-button" href="https://www.youtube.com/watch?v=AkSShuMZyDw" target="_blank">Video</a>
 		</div>
 
 		<h2>Social</h2>
@@ -456,14 +464,10 @@
 						<p>{{{text}}}</p>
 					</div>
 					{{#isNotice}}
-					<ul class="m-popup__actions">
-						<li class="m-popup__actions__item">
-							<a id="popupConfirmYes" class="form-button form-button--inline" href="{{url}}">{{confirm}}</a>
-						</li>
-						<li class="m-popup__actions__item">
-							<a id="popupConfirmNo" class="form-button form-button--text form-button--inline" href="javascript:void(0)">{{cancel}}</a>
-						</li>
-					</ul>
+					<div class="form-action form-action--tight">
+						<a id="popupConfirmYes" class="form-button form-button--success" href="{{url}}">{{confirm}}</a>
+						<a id="popupConfirmNo" class="form-button form-button--text" href="javascript:void(0)">{{cancel}}</a>
+					</div>
 					{{/isNotice}}
 				</div>
 			</div>

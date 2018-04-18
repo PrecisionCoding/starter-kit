@@ -31,6 +31,20 @@ $maxFormWidth: $maxContentWidth;
 			padding-bottom: 5px;
 		}
 	}
+	&--close
+	{
+		@include critical
+		{
+			padding-top: 0;
+		}
+	}
+	&--tight
+	{
+		@include critical
+		{
+			padding-bottom: 0;
+		}
+	}
 }
 
 .form-action
@@ -461,7 +475,7 @@ $maxFormWidth: $maxContentWidth;
 		{
 			background: none;
 			border-color: transparent;
-			color: $colorPrimary;
+			color: $colorBase;
 			padding-left: 10px;
 			padding-right: 10px;
 			min-width: unset;
@@ -472,7 +486,7 @@ $maxFormWidth: $maxContentWidth;
 			{
 				background: none;
 				border-color: transparent;
-				color: $colorBase;
+				color: $colorPrimary;
 			}
 		}
 		&.disabled, &[disabled] 

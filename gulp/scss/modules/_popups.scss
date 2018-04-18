@@ -160,42 +160,6 @@
 			}			
 		}
 	}
-	&__actions
-	{
-		@include deferred
-		{
-			clear: both;
-			font-size: 0;
-			line-height: 0;
-			margin: -10px 0 0 -10px;
-			padding: 15px 0 0 0;
-			@include mq-min($bpTabletLarge)
-			{
-				padding-top: 20px;
-			}
-			@include mq-min($bpDesktop)
-			{
-				padding-top: 25px;
-			}
-			@include mq-min($bpDesktopLarge)
-			{
-				padding-top: 30px;
-			}
-		}		
-		&__item
-		{
-			@include deferred
-			{
-				@include box-sizing();
-				display: inline-block;
-				@include font-size($fontSize);
-				@include line-height($fontHeight);
-				margin: 0;
-				padding: 10px 0 0 10px;
-				vertical-align: top;
-			}			
-		}
-	}
 	&__close
 	{
 		@include deferred
