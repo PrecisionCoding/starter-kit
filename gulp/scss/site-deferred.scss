@@ -6,25 +6,8 @@ $deferred: true;
 @import "cms";
 @import "forms";
 
-// base
-html
-{
-	@include deferred
-	{
-		
-	}	
-}
-
-body
-{
-	@include deferred
-	{
-		
-	}	
-}
-
 // plugins
-//@import "plugins/bx-slider";
+@import "plugins/bxslider";
 
 // layout
 @import "layout/page";

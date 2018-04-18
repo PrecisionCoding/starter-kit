@@ -1,0 +1,140 @@
+﻿@import "../config";
+
+$bpSliderLimit: $bpLarge + 60;
+
+.bx
+{
+	&-wrapper
+	{
+		@include deferred
+		{
+			position: relative;
+			z-index: 1;
+		}		
+	}
+	&-prev, &-next
+	{
+		@include deferred
+		{
+			bottom: 0;
+			margin: 0;
+			opacity: .6;
+			padding: 0;
+			position: absolute;
+			@include text-hidden();
+			top: 0;
+			width: 35px;
+			z-index: 100;
+		}
+		&:before
+		{
+			@include deferred
+			{
+				border-top: 2px solid $colorWhite;
+				content: "";
+				display: block;
+				height: 20px;
+				left: 50%;
+				margin-top: -11px;
+				position: absolute;				
+				width: 20px;
+				top: 50%;
+				z-index: 1;
+			}			
+		}
+		&:focus, &:hover
+		{
+			@include deferred
+			{
+				opacity: 1;
+			}
+		}
+		&.disabled
+		{
+			@include deferred
+			{
+				cursor: default;
+				opacity: 0;
+			}
+		}
+	}
+	&-prev
+	{
+		@include deferred
+		{
+			left: 0;
+		}
+		&:before
+		{
+			@include deferred
+			{
+				border-left: 2px solid $colorWhite;
+				margin-left: -4px;
+				@include rotate(-45deg);
+			}
+		}
+	}
+	&-next
+	{
+		@include deferred
+		{
+			right: 0;
+		}
+		&:before
+		{
+			@include deferred
+			{
+				border-right: 2px solid $colorWhite;
+				margin-left: -17px;
+				@include rotate(45deg);
+			}
+		}
+	}
+	&-pager
+	{
+		@include deferred
+		{
+			bottom: 10px;
+			display: none;
+			font-size: 0;
+			left: 40px;
+			line-height: 0;
+			margin: 0;
+			padding: 0;
+			position: absolute;
+			right: 40px;
+			text-align: center;
+			z-index: 1000;
+			@include mq-min($bpDesktop)
+			{
+				display: block;
+			}
+		}
+		&-item
+		{
+			@include deferred
+			{
+				display: inline-block;
+				margin: 0;
+				padding: 5px;
+			}
+		}
+		&-link
+		{
+			@include deferred
+			{
+				background: $colorOffWhite;
+				display: block;
+				height: 10px;
+				margin: 0;
+				padding: 0;
+				@include text-hidden();
+				width: 10px;
+				&:hover, &:focus, &.active
+				{
+					background: $colorPrimary;
+				}
+			}
+		}
+	}
+}
