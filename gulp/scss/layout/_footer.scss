@@ -1,0 +1,16 @@
+﻿@import "../config";
+
+.l-footer
+{
+	@include critical
+	{
+		color: $colorGrey;
+		font-family: $fontSimple;
+		@include font-size($fontSize - 4);
+		@include line-height($fontHeight - 4);
+		margin: 0 auto;
+		padding: 15px 15px 30px 15px;
+		text-align: left;
+		max-width: $maxPageWidth;
+	}	
+}
