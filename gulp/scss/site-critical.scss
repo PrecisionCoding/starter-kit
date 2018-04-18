@@ -59,6 +59,55 @@ body
 			}			
 		}		
 	}
+	&.debug
+	{
+		&:before
+		{
+			background: #f8d928;
+			content: "Mobile S";
+			color: #fff;
+			font-family: Verdana;
+			font-size: 9px;
+			left: 0;
+			line-height: 9px;
+			margin: 0;
+			padding: 2px 3px;
+			position: fixed;
+			text-transform: uppercase;
+			top: 0;
+			z-index: 9000;
+			@include mq-min($bpMobileLarge)
+			{
+				background: #f26522;
+				content: "Mobile L";
+			}
+			@include mq-min($bpTablet)
+			{
+				background: #8dc63f;
+				content: "Tablet S";
+			}
+			@include mq-min($bpTabletLarge)
+			{
+				background: #4caeeb;
+				content: "Tablet L";
+			}
+			@include mq-min($bpDesktop)
+			{
+				background: #662d91;
+				content: "Desktop S";
+			}
+			@include mq-min($bpDesktopLarge)
+			{
+				background: #ed145b;
+				content: "Desktop L";
+			}
+			@include mq-min($bpLarge)
+			{
+				background: #da2229;
+				content: "Large";
+			}
+		}
+	}
 }
 
 // plugins
