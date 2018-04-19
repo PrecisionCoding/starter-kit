@@ -768,6 +768,11 @@ $maxFormWidth: $maxContentWidth;
 			margin: 0 0 20px 0;
 			padding: 8px 10px;
 		}
+		@include deferred
+		{
+			position: relative;
+			z-index: 1;
+		}
 		a
 		{
 			@include critical
@@ -791,6 +796,31 @@ $maxFormWidth: $maxContentWidth;
 				}
 			}
 		}
+		&[data-timeout]
+		{
+			@include deferred
+			{
+				@include bg('/images/forms/notice-loader.gif', no-repeat, calc(100% - 10px) 10px);
+				padding-right: 60px;
+			}
+		}
+	}
+	&-notice
+	{
+		&__timer
+		{
+			@include deferred
+			{
+				color: rgba($colorWhite, .6);
+				display: none;
+				@include font-size($fontSize - 2);
+				@include line-height($fontHeight - 2);
+				position: absolute;
+				right: 35px;
+				top: 9px;
+				z-index: 1;
+			}
+		}
 	}
 	&-success
 	{
@@ -798,6 +828,13 @@ $maxFormWidth: $maxContentWidth;
 		{
 			background: $colorSuccess;
 			border-color: $colorSuccess;
+		}
+		&[data-timeout]
+		{
+			@include deferred
+			{
+				@include bg('/images/forms/success-loader.gif', no-repeat, calc(100% - 10px) 10px);
+			}
 		}
 	}
 	&-error
@@ -852,6 +889,13 @@ $maxFormWidth: $maxContentWidth;
 				}				
 			}	
 		}
+		&[data-timeout]
+		{
+			@include deferred
+			{
+				@include bg('/images/forms/error-loader.gif', no-repeat, calc(100% - 10px) 10px);
+			}
+		}
 	}
 	&-warning
 	{
@@ -859,6 +903,13 @@ $maxFormWidth: $maxContentWidth;
 		{
 			background: $colorWarning;
 			border-color: $colorWarning;
+		}
+		&[data-timeout]
+		{
+			@include deferred
+			{
+				@include bg('/images/forms/warning-loader.gif', no-repeat, calc(100% - 10px) 10px);
+			}
 		}
 	}
 	&-info

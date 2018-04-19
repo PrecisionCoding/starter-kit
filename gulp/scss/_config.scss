@@ -73,9 +73,11 @@ $bpLarge: 1280px; // for 1240px
 	line-height: calculateRem($a);
 }
 
-@mixin bg($url, $repeat: no-repeat, $position: 0 0, $other: null)
+@mixin bg($url, $repeat: no-repeat, $position: 0 0)
 {
-	background: url(#{$url}?v=#{$cssversion}) $repeat $position $other;
+	background-image: url(#{$url}?v=#{$cssversion});
+	background-repeat: $repeat;
+	background-position: $position;
 }
 
 @mixin min-height($a: 5px)

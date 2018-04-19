@@ -5,6 +5,7 @@
 		forms.autosubmit();
 		forms.maxLength();
 		forms.showIf.init();
+		forms.notices.init();
 		forms.jqueryUi.init();
 	},
 
@@ -259,6 +260,66 @@
 				// done
 				select.addClass('js-show-if-done');
 			});
+		}
+
+	},
+
+	notices: {
+
+		init: function () {
+			forms.notices.timeout();
+		},
+
+		timeout: function () {
+			$('.form-notice[data-timeout]:not(.js-timeout-done), .form-success[data-timeout]:not(.js-timeout-done), .form-error[data-timeout]:not(.js-timeout-done), .form-warning[data-timeout]:not(.js-timeout-done)').each(function () {
+				var wrapper = $(this);
+				var allow = true;
+				var delay = parseInt(wrapper.attr('data-timeout'), 10) || 30;
+				if (delay < 1) delay = 30;
+
+				// add timeout
+				wrapper.prepend('<span class="form-notice__timer js-timeout">' + delay + '</a>');
+
+				// init
+				var e = wrapper.find('.js-timeout');
+				var timer = setInterval(function () {
+					e.show().text(delay);
+					if (delay <= 1) {
+						clearInterval(timer);
+						wrapper.fadeOut(250, function () {
+							wrapper.remove();
+						});
+					}
+					delay--;
+				}, 1000);
+
+				// done
+				wrapper.addClass('js-timeout-done');
+			});
+		},
+
+		close: function () {
+			$('.form-notice[data-timeout]:not(.js-timeout-done), .form-success[data-timeout]:not(.js-timeout-done), .form-error[data-timeout]:not(.js-timeout-done), .form-warning[data-timeout]:not(.js-timeout-done)').each(function () {
+				var wrapper = $(this);
+				var allow = true;
+
+				// add anchor
+				wrapper.prepend('<a class="js-close" href="javascript:void(0)">Close</a>');
+
+				// click
+				wrapper.find('.js-close').off('click').on('click', function () {
+					if (!allow) return false;
+					allow = false;
+					wrapper.fadeOut(250, function () {
+						wrapper.remove();
+					});
+					return false;
+				});
+
+				// done
+				wrapper.addClass('js-timeout-done');
+			});
+
 		}
 
 	},
