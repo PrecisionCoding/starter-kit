@@ -25,7 +25,7 @@
 				changeTab(tabsLinks.filter('.active').attr('href'), false);
 			}
 			else {
-				changeTab(tabLinks.first().attr('href'), false);
+				changeTab(tabsLinks.first().attr('href'), false);
 			}
 
 			// links

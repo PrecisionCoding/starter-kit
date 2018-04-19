@@ -15,8 +15,7 @@
 				// scroll to
 				if (link.attr('data-takeover-scroll')) {
 					site.scrollTo($(link.attr('data-takeover-scroll')).offset().top);
-				}
-				
+				}				
 				return false;
 			});
 
