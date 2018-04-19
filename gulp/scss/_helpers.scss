@@ -270,3 +270,20 @@
 		}	
 	}
 }
+
+// text
+.text
+{
+	&-success
+	{
+		color: $colorSuccess;
+	}
+	&-error
+	{
+		color: $colorError;
+	}
+	&-warning
+	{
+		color: $colorWarning;
+	}
+}

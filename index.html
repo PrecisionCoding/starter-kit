@@ -57,6 +57,7 @@
 	<link href="css/site-critical.css?v=1" rel="stylesheet" media="screen" />
 
 	<noscript id="deferred-styles">
+		<!--<link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css" rel="stylesheet" media="screen" />-->
 		<link href="css/site-deferred.css?v=1" rel="stylesheet" media="screen" />
 		<link href="css/print.css?v=1" rel="stylesheet" media="print" />
 		<!--@RenderSection("DeferredCSS", false)-->
@@ -307,8 +308,27 @@
 			<p class="form-info">Format: KT23-XX-XX-XX</p>
 		</div>
 		<div class="form-row">
+			<label for="FormReferral">How did you hear about us?</label>
+			<select id="FormReferral" class="form-select" data-show-if="true">
+				<option value="">Select...</option>
+				<option>Google</option>
+				<option>Bing</option>
+				<option>Friend recommendation</option>
+				<option data-show-if="#other-referral">Other</option>
+			</select>
+		</div>
+		<div id="other-referral" class="form-row">
+			<label for="FormReference">If other, please specify</label>
+			<input id="FormReference" class="form-text" type="text" placeholder="If other, please specify..." />
+		</div>
+		<div class="form-row">
 			<label for="FormMessage">Message</label>
-			<textarea id="FormMessage" class="form-textarea" placeholder="Message..."></textarea>
+			<textarea id="FormMessage" class="form-textarea" placeholder="Message..." data-maxlength="250"></textarea>
+			<p class="form-info"><span class="js-maxlength-count">250</span> chars. max</p>
+		</div>
+		<div class="form-row">
+			<label for="FormDate">Date</label>
+			<input id="FormDate" class="form-text form-text--small js-datepicker" type="text" placeholder="Date..." />
 		</div>
 		<ul class="form-checks">
 			<li class="form-checks__item">
@@ -529,6 +549,7 @@
 			window.onload = load_deferred_javascript;
 		}
 	</script>
+
 
 </body>
 </html>

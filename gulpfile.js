@@ -54,6 +54,7 @@ gulp.task('css', ['css-run'], function () {
 gulp.task('js', ['js-critical'], function () {
 	// create new files
 	return gulp.src([
+		//'./gulp/scripts/jquery-ui.js',
 		'./gulp/scripts/plugins/**/*.js',
 		'./gulp/scripts/mvcfoolproof.unobtrusive.min.js',
 		'./gulp/scripts/deferred.js',
