@@ -770,6 +770,7 @@ $maxFormWidth: $maxContentWidth;
 		}
 		@include deferred
 		{
+			padding-right: 60px;
 			position: relative;
 			z-index: 1;
 		}
@@ -801,7 +802,6 @@ $maxFormWidth: $maxContentWidth;
 			@include deferred
 			{
 				@include bg('/images/forms/notice-loader.gif', no-repeat, calc(100% - 10px) 10px);
-				padding-right: 60px;
 			}
 		}
 	}
@@ -811,14 +811,66 @@ $maxFormWidth: $maxContentWidth;
 		{
 			@include deferred
 			{
-				color: rgba($colorWhite, .6);
+				color: rgba($colorWhite, .8);
 				display: none;
-				@include font-size($fontSize - 2);
-				@include line-height($fontHeight - 2);
+				@include font-size($fontSize - 3);
+				@include line-height($fontHeight - 3);
 				position: absolute;
 				right: 35px;
-				top: 9px;
+				top: 10px;
 				z-index: 1;
+			}
+		}
+		&__close
+		{
+			@include deferred
+			{
+				bottom: -2px;
+				display: block;
+				opacity: .6;
+				position: absolute;
+				right: -2px;
+				@include text-hidden();
+				top: -2px;
+				width: 42px;
+				z-index: 1;
+			}
+			&:before, &:after
+			{
+				@include deferred
+				{
+					border-top: 2px solid $colorWhite;
+					content: "";
+					display: block;
+					left: 50%;
+					margin-left: -8px;
+					margin-top: -1px;
+					position: absolute;
+					top: 50%;
+					width: 16px;
+					z-index: 1;
+				}
+			}
+			&:before
+			{
+				@include deferred
+				{
+					@include rotate(-45deg);
+				}
+			}
+			&:after
+			{
+				@include deferred
+				{
+					@include rotate(45deg);
+				}
+			}
+			&:focus, &:hover
+			{
+				@include deferred
+				{
+					opacity: 1;
+				}
 			}
 		}
 	}

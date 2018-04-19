@@ -268,12 +268,12 @@
 
 		init: function () {
 			forms.notices.timeout();
+			forms.notices.close();
 		},
 
 		timeout: function () {
 			$('.form-notice[data-timeout]:not(.js-timeout-done), .form-success[data-timeout]:not(.js-timeout-done), .form-error[data-timeout]:not(.js-timeout-done), .form-warning[data-timeout]:not(.js-timeout-done)').each(function () {
 				var wrapper = $(this);
-				var allow = true;
 				var delay = parseInt(wrapper.attr('data-timeout'), 10) || 30;
 				if (delay < 1) delay = 30;
 
@@ -299,12 +299,14 @@
 		},
 
 		close: function () {
-			$('.form-notice[data-timeout]:not(.js-timeout-done), .form-success[data-timeout]:not(.js-timeout-done), .form-error[data-timeout]:not(.js-timeout-done), .form-warning[data-timeout]:not(.js-timeout-done)').each(function () {
+			$('.form-notice.js-notice-close:not(.js-close-done), .form-success.js-notice-close:not(.js-close-done), .form-error.js-notice-close:not(.js-close-done), .form-warning.js-notice-close:not(.js-close-done)').each(function () {
 				var wrapper = $(this);
 				var allow = true;
 
+				if (wrapper.is('[data-timeout]')) return false;
+
 				// add anchor
-				wrapper.prepend('<a class="js-close" href="javascript:void(0)">Close</a>');
+				wrapper.prepend('<a class="form-notice__close js-close" href="javascript:void(0)">Close</a>');
 
 				// click
 				wrapper.find('.js-close').off('click').on('click', function () {
