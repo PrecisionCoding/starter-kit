@@ -42,6 +42,11 @@
 					@include line-height($fontHeight);
 				}
 			}
+			@include deferred
+			{
+				position: relative;
+				z-index: 1;
+			}
 			&:focus, &:hover, &.active
 			{
 				@include critical
@@ -57,8 +62,30 @@
 			{
 				@include deferred
 				{
-					background: $colorWhite;
+					background: $colorWhite !important;
 					border-bottom-color: $colorWhite;
+				}
+			}
+			&.error
+			{
+				@include deferred
+				{
+					background: rgba($colorError, .05);
+					color: $colorError;
+				}
+				&:before
+				{
+					@include deferred
+					{
+						border-top: 2px solid $colorError;
+						content: "";
+						display: block;
+						left: -1px;
+						position: absolute;
+						right: 0;
+						top: -1px;
+						z-index: 1;
+					}
 				}
 			}
 		}
