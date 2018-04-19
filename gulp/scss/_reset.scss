@@ -172,6 +172,23 @@ button::-moz-focus-inner, input::-moz-focus-inner
 	}	
 }
 
+// pre
+pre
+{
+	@include deferred
+	{
+		background: $colorBlack;
+		color: $colorWhite;
+		font-family: monospace;
+		font-size: 12px;
+		line-height: 24px;
+		margin: 0 0 20px 0;
+		padding: 10px 15px;
+		overflow-x: auto;
+		tab-size: 4;
+	}
+}
+
 // links
 a
 {
