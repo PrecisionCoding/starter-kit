@@ -6,6 +6,7 @@
 
 			// init
 			wrapper.bxSlider({
+				mode: 'fade',
 				infiniteLoop: false,
 				hideControlOnEnd: true,
 				speed: 1000

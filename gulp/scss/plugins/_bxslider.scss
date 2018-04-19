@@ -16,6 +16,7 @@ $bpSliderLimit: $bpLarge + 60;
 	{
 		@include deferred
 		{
+			background: rgba($colorWhite, 0);
 			bottom: 0;
 			margin: 0;
 			opacity: .6;

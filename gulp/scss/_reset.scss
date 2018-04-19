@@ -131,6 +131,15 @@ sub
 	}	
 }
 
+figure
+{
+	@include critical
+	{
+		width: 100%;
+		max-width: 100%;
+	}	
+}
+
 picture, img
 {
 	@include critical
