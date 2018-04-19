@@ -1,0 +1,66 @@
+﻿@import "../config";
+
+.m-tabs
+{
+	&__menu
+	{
+		@include critical
+		{
+			border-bottom: 1px solid $colorDivider;
+			font-size: 0;
+			line-height: 0;
+			margin-bottom: 20px;
+		}
+		&__item
+		{
+			@include critical
+			{
+				display: inline-block;
+				margin: 0 -1px -1px 0;
+			}
+		}
+		&__link
+		{
+			@include critical
+			{
+				background: rgba($colorBlack, .025);
+				border: 1px solid $colorDivider;
+				color: $colorGrey;
+				display: inline-block;
+				@include font-size($fontSize - 2);
+				@include line-height($fontHeight - 2);
+				padding: 8px 10px;
+				@include mq-min($bpTabletLarge)
+				{
+					@include font-size($fontSize - 1);
+					@include line-height($fontHeight - 1);
+					padding: 10px 15px;
+				}
+				@include mq-min($bpDesktop)
+				{
+					@include font-size($fontSize);
+					@include line-height($fontHeight);
+				}
+			}
+			&:focus, &:hover, &.active
+			{
+				@include critical
+				{
+					color: $colorGreyDark;
+				}
+				@include deferred
+				{
+					color: $colorBase;
+				}
+			}
+			&.active
+			{
+				@include deferred
+				{
+					background: $colorWhite;
+					border-bottom-color: $colorWhite;
+				}
+			}
+		}
+	}
+}
